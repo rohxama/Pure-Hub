@@ -36,7 +36,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <Link to="/" className="inline-block">
-              <span className="font-serif italic text-3xl font-bold">Miracle</span>
+              <span className="font-serif italic text-3xl font-bold">Pure Hub</span>
             </Link>
             <p className="mt-4 text-neutral-400 text-sm leading-relaxed max-w-xs">
               Curating the finest products for the discerning consumer. Quality, design, and sustainability at our core.
@@ -80,7 +80,7 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 py-6">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-sm text-neutral-500">&copy; 2026 Miracle. All rights reserved.</p>
+            <p className="text-sm text-neutral-500">&copy; 2026 Pure Hub. All rights reserved.</p>
             <div className="flex items-center gap-6">
               <span className="text-xs text-neutral-500">We accept</span>
               <div className="flex gap-2">
