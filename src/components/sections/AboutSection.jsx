@@ -1,12 +1,39 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ArrowLeft, ArrowRight, ArrowUpRight, Camera, Mail, MessageCircle, Phone, Star } from 'lucide-react'
+
+const experienceSlides = [
+  {
+    title: 'Barrier Restore',
+    subtitle: 'Cream',
+    description: 'Soft and nourishing - eucalyptus and honey',
+    reviews: '(5,662) Reviews',
+    price: '$200.87',
+  },
+  {
+    title: 'Body Lotion',
+    subtitle: 'Daily Milk',
+    description: 'Silky hydration - oat extract and almond',
+    reviews: '(4,918) Reviews',
+    price: '$180.00',
+  },
+  {
+    title: 'Face Wash',
+    subtitle: 'Cleanser',
+    description: 'Gentle cleanse - aloe and green tea',
+    reviews: '(3,420) Reviews',
+    price: '$145.00',
+  },
+]
 
 const catalogueProducts = [
   'Body Lotion',
   'Face Wash',
   'Barrier Restore',
   'Sun Block',
+  'Night Cream',
+  'Glow Serum',
 ]
 
 const blogTiles = [
@@ -28,6 +55,26 @@ function EmptyImage({ className = '' }) {
 }
 
 export default function AboutSection() {
+  const [experienceIndex, setExperienceIndex] = useState(0)
+  const [catalogueIndex, setCatalogueIndex] = useState(0)
+
+  const activeExperience = experienceSlides[experienceIndex]
+  const visibleCatalogue = Array.from({ length: 4 }, (_, index) => (
+    catalogueProducts[(catalogueIndex + index) % catalogueProducts.length]
+  ))
+
+  const goExperience = (direction) => {
+    setExperienceIndex((current) => (
+      (current + direction + experienceSlides.length) % experienceSlides.length
+    ))
+  }
+
+  const goCatalogue = (direction) => {
+    setCatalogueIndex((current) => (
+      (current + direction + catalogueProducts.length) % catalogueProducts.length
+    ))
+  }
+
   return (
     <>
       <section className="pure-hub-about-panel">
@@ -64,13 +111,19 @@ export default function AboutSection() {
         <h2 className="pure-hub-experience-title">Soft, Nourishing And Tender</h2>
 
         <div className="pure-hub-experience-grid">
-          <EmptyImage className="pure-hub-experience-image" />
+          <EmptyImage className={`pure-hub-experience-image pure-hub-slide-tone-${experienceIndex}`} />
           <article className="pure-hub-product-showcase">
-            <div className="pure-hub-showcase-top">
+            <motion.div
+              key={activeExperience.title}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.28 }}
+              className="pure-hub-showcase-top"
+            >
               <div>
-                <h3>Barrier Restore<br />Cream</h3>
-                <p>Soft and nourishing - eucalyptus and honey</p>
-                <span>(5,662) Reviews</span>
+                <h3>{activeExperience.title}<br />{activeExperience.subtitle}</h3>
+                <p>{activeExperience.description}</p>
+                <span>{activeExperience.reviews}</span>
               </div>
               <div className="pure-hub-stars" aria-label="4 out of 5 stars">
                 {[0, 1, 2, 3].map((item) => (
@@ -78,16 +131,16 @@ export default function AboutSection() {
                 ))}
                 <Star className="pure-hub-star-empty" />
               </div>
-            </div>
+            </motion.div>
 
             <div className="pure-hub-showcase-body">
-              <button aria-label="Previous product"><ArrowLeft /></button>
-              <EmptyImage className="pure-hub-showcase-image" />
-              <button aria-label="Next product"><ArrowRight /></button>
+              <button type="button" onClick={() => goExperience(-1)} aria-label="Previous product"><ArrowLeft /></button>
+              <EmptyImage className={`pure-hub-showcase-image pure-hub-slide-tone-${experienceIndex}`} />
+              <button type="button" onClick={() => goExperience(1)} aria-label="Next product"><ArrowRight /></button>
             </div>
 
             <div className="pure-hub-showcase-bottom">
-              <strong>$200.87</strong>
+              <strong>{activeExperience.price}</strong>
               <Link to="/products" className="pure-hub-outline-button">
                 Buy Now <ArrowUpRight />
               </Link>
@@ -127,15 +180,21 @@ export default function AboutSection() {
             <p className="pure-hub-section-label">Our Catalogue</p>
             <h2>Our Skincare Products</h2>
           </div>
-          <div className="pure-hub-slider-controls" aria-hidden="true">
-            <button><ArrowLeft /></button>
-            <button className="pure-hub-slider-active"><ArrowRight /></button>
+          <div className="pure-hub-slider-controls">
+            <button type="button" onClick={() => goCatalogue(-1)} aria-label="Previous catalogue products"><ArrowLeft /></button>
+            <button type="button" onClick={() => goCatalogue(1)} className="pure-hub-slider-active" aria-label="Next catalogue products"><ArrowRight /></button>
           </div>
         </div>
 
         <div className="pure-hub-catalogue-grid">
-          {catalogueProducts.map((product) => (
-            <article className="pure-hub-catalogue-card" key={product}>
+          {visibleCatalogue.map((product, index) => (
+            <motion.article
+              className="pure-hub-catalogue-card"
+              key={`${product}-${catalogueIndex}`}
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.28, delay: index * 0.04 }}
+            >
               <div className="pure-hub-card-topline">
                 <h3>{product}</h3>
                 <Link to="/products" aria-label={`View ${product}`}>
@@ -143,7 +202,7 @@ export default function AboutSection() {
                 </Link>
               </div>
               <EmptyImage className="pure-hub-catalogue-image" />
-            </article>
+            </motion.article>
           ))}
         </div>
       </section>
