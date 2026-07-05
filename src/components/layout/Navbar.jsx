@@ -33,22 +33,22 @@ export default function Navbar() {
             : 'bg-white'
         }`}
       >
-        <div className="miracle-nav-shell">
-          <div className="miracle-nav-bar">
+        <div className="pure-hub-nav-shell">
+          <div className="pure-hub-nav-bar">
             <Link to="/" className="flex items-center shrink-0">
-              <span className="miracle-logo">
-                Miracle
+              <span className="pure-hub-logo">
+                Pure Hub
               </span>
             </Link>
 
-            <nav className="miracle-nav-links hidden lg:flex">
+            <nav className="pure-hub-nav-links hidden lg:flex">
               {NAV_LINKS.map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`miracle-nav-link ${
+                  className={`pure-hub-nav-link ${
                     location.pathname === link.path
-                      ? 'miracle-nav-link-active'
+                      ? 'pure-hub-nav-link-active'
                       : ''
                   }`}
                 >
@@ -57,18 +57,18 @@ export default function Navbar() {
               ))}
             </nav>
 
-            <div className="miracle-nav-actions">
-              <button className="miracle-icon-button hidden sm:flex">
+            <div className="pure-hub-nav-actions">
+              <button className="pure-hub-icon-button hidden sm:flex">
                 <User className="h-5 w-5 text-neutral-950" />
               </button>
 
-              <button className="miracle-icon-button hidden sm:flex">
+              <button className="pure-hub-icon-button hidden sm:flex">
                 <Camera className="h-5 w-5 text-neutral-950" />
               </button>
 
               <Link
                 to="/cart"
-                className="miracle-icon-button relative"
+                className="pure-hub-icon-button relative"
               >
                 <ShoppingBag className="h-5 w-5 text-neutral-950" />
                 {cartItemsCount > 0 && (
@@ -84,14 +84,14 @@ export default function Navbar() {
 
               <Link
                 to="/products"
-                className="miracle-shop-button hidden sm:inline-flex"
+                className="pure-hub-shop-button hidden sm:inline-flex"
               >
                 Shop Now
               </Link>
 
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="miracle-icon-button lg:hidden"
+                className="pure-hub-icon-button lg:hidden"
               >
                 {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
               </button>
@@ -139,7 +139,7 @@ export default function Navbar() {
           </div>
 
           <div className="pt-4 border-t border-neutral-100">
-            <p className="text-xs text-neutral-400 text-center">&copy; 2026 Miracle. All rights reserved.</p>
+            <p className="text-xs text-neutral-400 text-center">&copy; 2026 Pure Hub. All rights reserved.</p>
           </div>
         </div>
       </motion.div>
