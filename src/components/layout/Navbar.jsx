@@ -1,20 +1,60 @@
 import { motion } from 'framer-motion'
-import { Camera, Menu, ShoppingBag, User, X } from 'lucide-react'
-import { useState, useEffect } from 'react'
+import { Search, Menu, ShoppingBag, User, X } from 'lucide-react'
+import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useCart } from '@/context/CartContext'
 import { NAV_LINKS } from '@/constants'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
+  const [isVisible, setIsVisible] = useState(true)
   const [isScrolled, setIsScrolled] = useState(false)
   const location = useLocation()
   const { cartItemsCount } = useCart()
+  const hideTimeout = useRef(null)
+  const lastScrollY = useRef(0)
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20)
-    window.addEventListener('scroll', handleScroll)
+    const handleScroll = () => {
+      const y = window.scrollY
+      setIsScrolled(y > 20)
+
+      if (y <= 0) {
+        setIsVisible(true)
+      } else if (y > lastScrollY.current) {
+        setIsVisible(false)
+      }
+
+      lastScrollY.current = y
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      if (window.scrollY <= 0) {
+        setIsVisible(true)
+        return
+      }
+
+      if (e.clientY <= 2) {
+        if (hideTimeout.current) clearTimeout(hideTimeout.current)
+        setIsVisible(true)
+      } else if (e.clientY > 80) {
+        if (hideTimeout.current) clearTimeout(hideTimeout.current)
+        hideTimeout.current = setTimeout(() => {
+          setIsVisible(false)
+        }, 200)
+      }
+    }
+
+    window.addEventListener('mousemove', handleMouseMove)
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove)
+      if (hideTimeout.current) clearTimeout(hideTimeout.current)
+    }
   }, [])
 
   useEffect(() => {
@@ -24,9 +64,9 @@ export default function Navbar() {
   return (
     <>
       <motion.header
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        initial={false}
+        animate={{ y: isVisible ? 0 : '-100%' }}
+        transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
         className={`fixed left-0 right-0 top-0 z-[100] transition-all duration-500 ${
           isScrolled
             ? 'bg-white/90 backdrop-blur-xl shadow-[0_1px_0_0_rgba(0,0,0,0.06)]'
@@ -63,7 +103,7 @@ export default function Navbar() {
               </button>
 
               <button className="pure-hub-icon-button hidden sm:flex">
-                <Camera className="h-5 w-5 text-neutral-950" />
+                <Search className="h-5 w-5 text-neutral-950" />
               </button>
 
               <Link
