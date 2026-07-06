@@ -37,7 +37,8 @@ export default function Hero() {
           <p className="pure-hub-hero-copy">
             Experience the Pure Hub of Perfect Skin.<br />
             Nourish Your Skin, Embrace the Pure Hub.<br />
-            The Essence of Glowing Skin.
+            The Essence of Glowing Skin.npm un dev
+            
           </p>
           <Link
             to="/products"
