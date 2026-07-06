@@ -1,82 +1,150 @@
+import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
-import { Star, ChevronRight } from 'lucide-react'
+import { ChevronDown, Filter, Heart, SlidersHorizontal, Star } from 'lucide-react'
 import { products } from '@/data/products'
+import { EmptyImage, Newsletter, PageFooter, PageHero } from '@/components/sections/PageCommon'
+
+const categories = ['All Products', 'Face Care', 'Body Care', 'Serums', 'Moisturizers', 'Cleansers', 'Masks']
+const skinTypes = ['All Skin Types', 'Normal', 'Oily', 'Dry', 'Sensitive', 'Combination']
+const concerns = ['Hydration', 'Anti-Aging', 'Acne Care', 'Brightening', 'Soothing']
+const chips = ['All Products', 'Best Seller', 'New Arrivals', 'On Sale']
 
 export default function Products() {
+  const [category, setCategory] = useState('All Products')
+  const [skinType, setSkinType] = useState('All Skin Types')
+  const [chip, setChip] = useState('All Products')
+  const [sort, setSort] = useState('Featured')
+  const [page, setPage] = useState(1)
+
+  const visibleProducts = useMemo(() => {
+    let result = [...products]
+    if (chip === 'Best Seller') result = result.filter((product) => product.badge?.toLowerCase().includes('best') || product.rating >= 4.8)
+    if (chip === 'New Arrivals') result = result.filter((product) => product.badge?.toLowerCase().includes('new') || product.id % 3 === 0)
+    if (chip === 'On Sale') result = result.filter((product) => product.originalPrice)
+    if (sort === 'Price: Low to High') result.sort((a, b) => a.price - b.price)
+    if (sort === 'Price: High to Low') result.sort((a, b) => b.price - a.price)
+    if (sort === 'Rating') result.sort((a, b) => b.rating - a.rating)
+    return result
+  }, [chip, sort])
+
+  const paged = visibleProducts.slice((page - 1) * 12, page * 12)
+
   return (
-    <section className="bg-white min-h-screen">
-      {/* Breadcrumb */}
-      <div className="px-[clamp(8px,1.5vw,24px)] pt-6 pb-4">
-        <nav className="flex items-center gap-2 text-xs text-neutral-400">
-          <Link to="/" className="hover:text-neutral-700 transition-colors">Home</Link>
-          <ChevronRight className="w-3 h-3" />
-          <span className="text-neutral-900">Shop</span>
-        </nav>
-      </div>
+    <main className="ph-page">
+      <PageHero
+        titleItalic="Our"
+        titleRest="Products"
+        copy="Discover skincare crafted with nature and science to nourish, protect, and bring out your natural glow."
+      />
 
-      {/* Header */}
-      <div className="px-[clamp(8px,1.5vw,24px)] pb-10 sm:pb-14">
-        <h1 className="font-serif text-4xl sm:text-5xl text-neutral-900">All Products</h1>
-        <p className="mt-3 text-sm text-neutral-500">{products.length} products</p>
-      </div>
+      <section className="ph-products-layout">
+        <aside className="ph-filter-panel">
+          <button type="button" className="ph-filter-trigger"><SlidersHorizontal /> Filter</button>
+          <FilterGroup title="Categories" items={categories} active={category} setActive={setCategory} />
+          <FilterGroup title="Skin Type" items={skinTypes} active={skinType} setActive={setSkinType} />
+          <div className="ph-filter-block">
+            <h3>Price <ChevronDown /></h3>
+            <input type="range" min="10" max="100" defaultValue="70" aria-label="Price range" />
+            <div className="ph-price-range"><span>$10</span><span>$100</span></div>
+          </div>
+          <FilterGroup title="Concerns" items={concerns} active="" setActive={() => {}} checkbox />
+          <FilterGroup title="Availability" items={['In Stock', 'Out of Stock']} active="In Stock" setActive={() => {}} checkbox />
+        </aside>
 
-      {/* Product Grid */}
-      <div className="px-[clamp(8px,1.5vw,24px)] pb-20 sm:pb-24">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-10">
-          {products.map((product, index) => (
-            <motion.div
-              key={product.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.05 }}
-            >
-              <Link to={`/product/${product.slug}`} className="group block">
-                {/* Image */}
-                <div className="aspect-[4/5] bg-neutral-100 rounded-sm overflow-hidden relative">
-                  <img
-                    src={product.images[0]}
-                    alt={product.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  {product.badge && (
-                    <span className="absolute top-3 left-3 px-2.5 py-1 bg-neutral-900 text-white text-[10px] font-medium rounded-sm uppercase tracking-wider">
-                      {product.badge}
-                    </span>
-                  )}
-                </div>
+        <div className="ph-products-main">
+          <div className="ph-products-toolbar">
+            <span>Showing 1–{Math.min(12, visibleProducts.length)} of {visibleProducts.length} results</span>
+            <label>
+              Sort by:
+              <select value={sort} onChange={(event) => setSort(event.target.value)}>
+                {['Featured', 'Price: Low to High', 'Price: High to Low', 'Rating'].map((item) => <option key={item}>{item}</option>)}
+              </select>
+            </label>
+          </div>
 
-                {/* Info */}
-                <div className="mt-4">
-                  <h3 className="text-sm font-medium text-neutral-900 uppercase tracking-wider leading-tight">
-                    {product.name}
-                  </h3>
-                  <div className="mt-1.5 flex items-baseline gap-2">
-                    {product.originalPrice && (
-                      <span className="text-sm text-neutral-400 line-through">${product.originalPrice}</span>
-                    )}
-                    <span className="text-sm font-medium text-neutral-900">${product.price}</span>
+          <div className="ph-product-chips">
+            {chips.map((item) => (
+              <button
+                type="button"
+                key={item}
+                onClick={() => {
+                  setChip(item)
+                  setPage(1)
+                }}
+                className={chip === item ? 'ph-active' : ''}
+              >
+                {item}
+              </button>
+            ))}
+          </div>
+
+          <div className="ph-product-grid">
+            {paged.map((product) => (
+              <article className="ph-product-card" key={product.id}>
+                <Link to={`/product/${product.slug}`}>
+                  <div className="ph-product-media">
+                    <EmptyImage />
+                    {product.originalPrice ? <span>{Math.max(10, Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100))}% OFF</span> : product.badge ? <span>{product.badge}</span> : null}
+                    <button type="button" aria-label={`Save ${product.name}`}><Heart /></button>
                   </div>
-                  <div className="mt-1.5 flex items-center gap-1">
-                    {[1, 2, 3, 4, 5].map((star) => (
-                      <Star
-                        key={star}
-                        className={`w-3.5 h-3.5 ${
-                          star <= Math.floor(product.rating)
-                            ? 'fill-neutral-900 text-neutral-900'
-                            : 'fill-neutral-200 text-neutral-200'
-                        }`}
-                      />
-                    ))}
-                    <span className="text-xs text-neutral-400 ml-1">{product.rating}</span>
+                  <p className="ph-product-category">Face Care</p>
+                  <h2>{product.name}</h2>
+                  <div className="ph-card-stars">
+                    {[1, 2, 3, 4, 5].map((star) => <Star key={star} />)}
+                    <span>({product.reviews})</span>
                   </div>
-                </div>
-              </Link>
-            </motion.div>
-          ))}
+                  <p className="ph-product-price">
+                    <strong>${product.price.toFixed(2)}</strong>
+                    {product.originalPrice ? <span>${product.originalPrice.toFixed(2)}</span> : null}
+                  </p>
+                </Link>
+              </article>
+            ))}
+          </div>
+
+          <div className="ph-pagination">
+            <button type="button" onClick={() => setPage(Math.max(1, page - 1))}>‹</button>
+            {[1, 2, 3, 4].map((item) => (
+              <button type="button" key={item} onClick={() => setPage(item)} className={page === item ? 'ph-active' : ''}>{item}</button>
+            ))}
+            <button type="button" onClick={() => setPage(page + 1)}>›</button>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <Newsletter />
+      <section className="ph-product-benefits">
+        {[
+          ['Clean Ingredients', 'Carefully selected natural ingredients for your skin.'],
+          ['Dermatologist-Tested', 'Tested for safety and effectiveness.'],
+          ['Sustainable Beauty', 'Eco-friendly packaging for a better tomorrow.'],
+        ].map(([title, copy]) => (
+          <article key={title}>
+            <span><Filter /></span>
+            <div><h3>{title}</h3><p>{copy}</p></div>
+          </article>
+        ))}
+      </section>
+      <PageFooter active="Products" />
+    </main>
+  )
+}
+
+function FilterGroup({ title, items, active, setActive, checkbox = false }) {
+  return (
+    <div className="ph-filter-block">
+      <h3>{title} <ChevronDown /></h3>
+      {items.map((item) => (
+        <label key={item}>
+          <input
+            type={checkbox ? 'checkbox' : 'radio'}
+            name={title}
+            checked={checkbox ? item === 'In Stock' : active === item}
+            onChange={() => setActive(item)}
+          />
+          {item}
+        </label>
+      ))}
+    </div>
   )
 }
