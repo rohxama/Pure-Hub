@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { ArrowLeft, ArrowRight, ChevronRight, Heart, Minus, Plus, Star } from 'lucide-react'
+import { ArrowLeft, ArrowRight, CheckCircle, ChevronRight, Heart, Minus, Plus, Share2, Star } from 'lucide-react'
 import { products } from '@/data/products'
 import { useCart } from '@/context/CartContext'
 
@@ -23,6 +23,7 @@ export default function ProductDetail() {
   const [purchaseType, setPurchaseType] = useState('one-time')
   const [activeTab, setActiveTab] = useState('how-to-use')
   const [relatedStart, setRelatedStart] = useState(0)
+  const [selectedSize, setSelectedSize] = useState('30 ml')
 
   const galleryCount = Math.max(product.images?.length || 0, 5)
   const relatedProducts = products.filter((p) => p.id !== product.id)
@@ -35,6 +36,13 @@ export default function ProductDetail() {
     { id: 'benefit', label: 'Benefit' },
     { id: 'ingredients', label: 'Ingredients' },
     { id: 'return-policy', label: 'Return Policy' },
+  ]
+
+  const detailPanelTabs = [
+    { id: 'benefit', label: 'Description' },
+    { id: 'ingredients', label: 'Ingredients' },
+    { id: 'how-to-use', label: 'How To Use' },
+    { id: 'return-policy', label: 'Reviews' },
   ]
 
   const tabCopy = {
@@ -128,6 +136,20 @@ export default function ProductDetail() {
             </p>
 
             <div className="pure-hub-method">
+              <p>Size / Volume</p>
+              <div className="ph-size-row">
+                {['30 ml', '60 ml', '80 ml', '100 ml'].map((size) => (
+                  <button
+                    type="button"
+                    key={size}
+                    onClick={() => setSelectedSize(size)}
+                    className={selectedSize === size ? 'ph-active' : ''}
+                  >
+                    {size}
+                  </button>
+                ))}
+              </div>
+
               <p>Amount & Method</p>
               <div className="pure-hub-quantity-row">
                 <div className="pure-hub-quantity">
@@ -174,6 +196,13 @@ export default function ProductDetail() {
               Favorite <Heart />
             </button>
 
+            <div className="ph-product-meta">
+              <p><strong>SKU:</strong> PHS-{product.id.toString().padStart(4, '0')}</p>
+              <p><strong>Categories:</strong> Skin Care, Serums</p>
+              <p><strong>Tags:</strong> Hydrating, Brightening, Natural</p>
+              <p><strong>Share:</strong> <a href="#"><Share2 /></a><a href="#"><Heart /></a></p>
+            </div>
+
             <div className="pure-hub-detail-tabs">
               {tabs.map((tab) => (
                 <button
@@ -195,6 +224,76 @@ export default function ProductDetail() {
           </div>
         </div>
       </div>
+
+      <section className="ph-detail-panel">
+        <div className="ph-detail-panel-tabs">
+          {detailPanelTabs.map((item) => (
+            <button
+              key={item.id}
+              type="button"
+              onClick={() => setActiveTab(item.id)}
+              className={activeTab === item.id ? 'ph-active' : ''}
+            >
+              {item.label}
+            </button>
+          ))}
+        </div>
+        <div className="ph-detail-panel-body">
+          <div>
+            <p>{tabCopy[activeTab][0]}</p>
+            {[
+              'Deeply hydrates and nourishes',
+              'Helps brighten and even skin tone',
+              'Reduces the appearance of fine lines',
+              'Lightweight and non-greasy formula',
+              'Dermatologist-tested and safe',
+            ].map((item) => (
+              <span key={item}><CheckCircle /> {item}</span>
+            ))}
+          </div>
+          <EmptyProductImage className="ph-detail-panel-image" />
+        </div>
+      </section>
+
+      <section className="ph-review-section">
+        <div className="ph-review-summary">
+          <div>
+            <h2>Customer Reviews</h2>
+            <strong>{product.rating}</strong>
+            <p>out of 5</p>
+            <div>{[1, 2, 3, 4, 5].map((star) => <Star key={star} />)}</div>
+            <span>({product.reviews} Reviews)</span>
+          </div>
+          <div className="ph-review-bars">
+            {[172, 52, 15, 4, 2].map((count, index) => (
+              <p key={count}>
+                {5 - index} Star <span><i style={{ width: `${Math.max(6, count / 1.8)}%` }} /></span> {count}
+              </p>
+            ))}
+          </div>
+          <button type="button">Write A Review</button>
+        </div>
+
+        {[
+          ['Kristin Watson', 'Absolutely love this product!', 'This serum has made my skin feel so smooth and hydrated.'],
+          ['Jenny Wilson', 'Perfect for my skincare routine!', 'Lightweight, non-greasy, and works great under makeup.'],
+          ['Darlene Robertson', 'Great results', 'My skin looks brighter and healthier after a few weeks.'],
+        ].map(([name, title, copy], index) => (
+          <article className="ph-review-row" key={name}>
+            <EmptyProductImage />
+            <div>
+              <h3>{name}</h3>
+              <p>Verified Buyer</p>
+            </div>
+            <div>
+              <span>{[1, 2, 3, 4, 5].map((star) => <Star key={star} />)} {index === 2 ? '4.0' : '5.0'}</span>
+              <h4>{title}</h4>
+              <p>{copy}</p>
+            </div>
+            <time>{index + 1} month ago</time>
+          </article>
+        ))}
+      </section>
 
       <section className="pure-hub-related">
         <div className="pure-hub-related-heading">
