@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ArrowLeft, ArrowRight, ArrowUpRight, Camera, Mail, MessageCircle, Phone, Star } from 'lucide-react'
 
@@ -54,14 +54,47 @@ function EmptyImage({ className = '' }) {
   )
 }
 
+const reviews = [
+  {
+    name: 'DUA SAJJAD',
+    profession: 'Head dermatologist',
+    text: 'I loved it when I used it it made my skin glow. And I am a regular customer for 10 years. I have only used Pure Hub skin lotion and I don\'t use any other product. This product is the best.',
+  },
+  {
+    name: 'SARAH CHEN',
+    profession: 'Beauty influencer',
+    text: 'Pure Hub transformed my skincare routine completely. My skin has never looked this radiant and healthy. The natural ingredients make all the difference.',
+  },
+  {
+    name: 'JAMES WILSON',
+    profession: 'Skincare specialist',
+    text: 'After years of trying different products, Pure Hub is the only brand that delivered real results. The quality and formulation are unmatched in the industry.',
+  },
+  {
+    name: 'EMILY RODRIGUEZ',
+    profession: 'Esthetician',
+    text: 'I recommend Pure Hub to all my clients. The products are gentle yet effective, and the results speak for themselves. Truly a game-changer.',
+  },
+]
+
 export default function AboutSection() {
   const [experienceIndex, setExperienceIndex] = useState(0)
   const [catalogueIndex, setCatalogueIndex] = useState(0)
+  const [reviewIndex, setReviewIndex] = useState(0)
 
   const activeExperience = experienceSlides[experienceIndex]
   const visibleCatalogue = Array.from({ length: 4 }, (_, index) => (
     catalogueProducts[(catalogueIndex + index) % catalogueProducts.length]
   ))
+
+  const activeReview = reviews[reviewIndex]
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setReviewIndex((prev) => (prev + 1) % reviews.length)
+    }, 4000)
+    return () => clearInterval(timer)
+  }, [])
 
   const goExperience = (direction) => {
     setExperienceIndex((current) => (
@@ -151,12 +184,21 @@ export default function AboutSection() {
 
       <section className="pure-hub-reviews">
         <div className="pure-hub-reviews-intro">
-          <h3>DUA SAJJAD</h3>
-          <p>Head dermatologist</p>
-          <blockquote>
-            “ I loved it when I used it it made my skin glow. And I am a regular customer for 10 years. I have only used
-            Pure Hub skin lotion and I don&apos;t use any other product. This product is the best. ”
-          </blockquote>
+          <div className="pure-hub-review-slider">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={reviewIndex}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5, ease: 'easeInOut' }}
+              >
+                <h3>{activeReview.name}</h3>
+                <p>{activeReview.profession}</p>
+                <blockquote>{activeReview.text}</blockquote>
+              </motion.div>
+            </AnimatePresence>
+          </div>
           <h2>What People Say About<br />Our Products</h2>
         </div>
 
