@@ -77,7 +77,7 @@ export default function Navbar() {
         <div className="pure-hub-nav-shell">
           <div className="pure-hub-nav-bar">
             <Link to="/" className="flex items-center shrink-0 overflow-hidden">
-              <img src={logoSrc} alt="Pure Hub" className="max-h-20 sm:max-h-25 w-auto object-contain block " />
+              <img src={logoSrc} alt="Pure Hub" className="max-h-0 sm:max-h-25 w-auto object-contain block " />
             </Link>
 
             <nav className="pure-hub-nav-links hidden lg:flex">
@@ -123,9 +123,10 @@ export default function Navbar() {
 
               <Link
                 to="/products"
-                className="pure-hub-shop-button hidden sm:inline-flex"
+                className="pure-hub-shop-button btn-slide hidden sm:inline-flex"
+                data-label="Shop Now"
               >
-                Shop Now
+                <span className="btn-text">Shop Now</span>
               </Link>
 
               <button
@@ -171,9 +172,10 @@ export default function Navbar() {
           <div className="pt-4 pb-6">
             <Link
               to="/products"
-              className="flex items-center justify-center w-full py-3.5 bg-neutral-900 text-white rounded-full text-sm font-medium hover:bg-neutral-800 transition-all duration-300"
+              className="flex items-center justify-center w-full py-3.5 bg-neutral-900 text-white rounded-full text-sm font-medium hover:bg-neutral-800 transition-all duration-300 btn-slide"
+              data-label="Shop Now"
             >
-              Shop Now
+              <span className="btn-text">Shop Now</span>
             </Link>
           </div>
 
