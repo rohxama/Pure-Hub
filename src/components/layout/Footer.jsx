@@ -66,7 +66,7 @@ export default function Footer() {
                       className="group flex items-center gap-1 text-sm text-neutral-400 hover:text-white transition-colors duration-200"
                     >
                       {link.name}
-                      <ArrowUpRight className="w-3 h-3 opacity-0 -translate-y-0.5 translate-x-0.5 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all duration-200" />
+                      <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-all duration-200" />
                     </Link>
                   </li>
                 ))}
