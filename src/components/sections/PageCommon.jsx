@@ -32,7 +32,7 @@ export function Newsletter() {
       </div>
       <form onSubmit={(event) => event.preventDefault()}>
         <input type="email" placeholder="Enter your email" aria-label="Email address" />
-        <button type="submit" className="btn-slide" data-label="Subscribe"><span className="btn-text">Subscribe</span></button>
+        <button type="submit" className="btn-slide"><div className="btn-slide-inner"><span className="btn-text">Subscribe</span><span className="btn-slide-text-alt" aria-hidden="true">Subscribe</span></div></button>
       </form>
     </section>
   )
@@ -45,7 +45,7 @@ export function ContactBand() {
       <div>
         <h2>Get In<br />Touch<br />With Us</h2>
         <p>We&apos;d love to hear from you. Reach out for any questions or support.</p>
-        <Link to="/contact" className="btn-slide" data-label="Contact Us"><span className="btn-text">Contact Us</span></Link>
+        <Link to="/contact" className="btn-slide"><div className="btn-slide-inner"><span className="btn-text">Contact Us</span><span className="btn-slide-text-alt" aria-hidden="true">Contact Us</span></div></Link>
       </div>
     </section>
   )
