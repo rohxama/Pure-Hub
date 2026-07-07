@@ -49,7 +49,7 @@ export default function Contact() {
           <input required type="email" placeholder="Email Address" aria-label="Email address" />
           <input required placeholder="Subject" aria-label="Subject" />
           <textarea required placeholder="Your Message" aria-label="Your message" />
-          <button type="submit" className="btn-slide" data-label="Send Message"><span className="btn-text">Send Message</span> <span>→</span></button>
+          <button type="submit" className="btn-slide"><div className="btn-slide-inner"><span className="btn-text">Send Message</span><span className="btn-slide-text-alt" aria-hidden="true">Send Message</span></div> <span>→</span></button>
           {sent ? <p className="ph-form-status">Thanks, your message is ready to send.</p> : null}
         </form>
 
