@@ -22,8 +22,8 @@ export default function Footer() {
                   className="w-full pl-11 pr-4 py-3.5 bg-white/5 border border-white/10 rounded-xl text-sm text-white placeholder:text-neutral-500 focus:outline-none focus:border-white/30 transition-colors"
                 />
               </div>
-              <button className="px-6 py-3.5 bg-white text-neutral-900 rounded-xl text-sm font-semibold hover:bg-neutral-100 transition-colors duration-200">
-                Subscribe
+              <button className="px-6 py-3.5 bg-white text-neutral-900 rounded-xl text-sm font-semibold hover:bg-neutral-100 transition-colors duration-200 btn-slide" data-label="Subscribe">
+                <span className="btn-text">Subscribe</span>
               </button>
             </div>
           </div>
