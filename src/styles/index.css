@@ -3209,27 +3209,11 @@ select {
 /* ============================================
    BUTTON TEXT SLIDE ANIMATION
    ============================================ */
-.btn-slide {
+.btn-slide-inner {
   position: relative;
   overflow: hidden;
-}
-
-.btn-slide::before {
-  content: attr(data-label);
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  white-space: nowrap;
-  transition: top 1.125s cubic-bezier(0.19, 1, 0.22, 1);
-}
-
-.btn-slide:hover::before {
-  top: 0;
+  display: inline-block;
+  line-height: normal;
 }
 
 .btn-slide .btn-text {
@@ -3237,6 +3221,18 @@ select {
   transition: transform 1.125s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
+.btn-slide-text-alt {
+  position: absolute;
+  top: 1.75rem;
+  left: 0;
+  width: 100%;
+  transition: top 1.125s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
 .btn-slide:hover .btn-text {
-  transform: translateY(-100%);
+  transform: translateY(-1.75rem);
+}
+
+.btn-slide:hover .btn-slide-text-alt {
+  top: 0;
 }
