@@ -191,9 +191,9 @@ export default function ProductDetail() {
               </label>
             </div>
 
-            <button type="button" onClick={addCurrentToCart} className="pure-hub-add-cart">Add to cart</button>
-            <button type="button" className="pure-hub-favorite">
-              Favorite <Heart />
+            <button type="button" onClick={addCurrentToCart} className="pure-hub-add-cart btn-slide" data-label="Add to cart"><span className="btn-text">Add to cart</span></button>
+            <button type="button" className="pure-hub-favorite btn-slide" data-label="Favorite">
+              <span className="btn-text">Favorite</span> <Heart />
             </button>
 
             <div className="ph-product-meta">
@@ -209,9 +209,10 @@ export default function ProductDetail() {
                   key={tab.id}
                   type="button"
                   onClick={() => setActiveTab(tab.id)}
-                  className={activeTab === tab.id ? 'pure-hub-tab-active' : ''}
+                  className={activeTab === tab.id ? 'pure-hub-tab-active btn-slide' : 'btn-slide'}
+                  data-label={tab.label}
                 >
-                  {tab.label}
+                  <span className="btn-text">{tab.label}</span>
                 </button>
               ))}
             </div>
@@ -232,9 +233,10 @@ export default function ProductDetail() {
               key={item.id}
               type="button"
               onClick={() => setActiveTab(item.id)}
-              className={activeTab === item.id ? 'ph-active' : ''}
+              className={`${activeTab === item.id ? 'ph-active ' : ''}btn-slide`}
+              data-label={item.label}
             >
-              {item.label}
+              <span className="btn-text">{item.label}</span>
             </button>
           ))}
         </div>
@@ -271,7 +273,7 @@ export default function ProductDetail() {
               </p>
             ))}
           </div>
-          <button type="button">Write A Review</button>
+          <button type="button" className="btn-slide" data-label="Write A Review"><span className="btn-text">Write A Review</span></button>
         </div>
 
         {[
@@ -332,9 +334,9 @@ export default function ProductDetail() {
           ))}
         </div>
 
-        <div className="pure-hub-more-products">
-          <Link to="/products">
-            More products <ArrowRight />
+          <div className="pure-hub-more-products">
+          <Link to="/products" className="btn-slide" data-label="More products">
+            <span className="btn-text">More products</span> <ArrowRight />
           </Link>
         </div>
       </section>
