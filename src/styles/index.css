@@ -1304,7 +1304,7 @@ select {
 
 .pure-hub-nav-bar {
   display: flex;
-  height: 6rem;
+  height: 7.5rem;
   align-items: center;
   justify-content: space-between;
 }
@@ -3204,4 +3204,39 @@ select {
   .pure-hub-related-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* ============================================
+   BUTTON TEXT SLIDE ANIMATION
+   ============================================ */
+.btn-slide {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-slide::before {
+  content: attr(data-label);
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  white-space: nowrap;
+  transition: top 1.125s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.btn-slide:hover::before {
+  top: 0;
+}
+
+.btn-slide .btn-text {
+  display: block;
+  transition: transform 1.125s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.btn-slide:hover .btn-text {
+  transform: translateY(-100%);
 }
