@@ -132,7 +132,7 @@ export default function AboutSection() {
                 looking good--it&apos;s about feeling confident in your own skin. Our mission is to provide high-quality,
                 effective skincare products that cater to the unique needs of every individual.
               </p>
-              <Link to="/about" className="pure-hub-light-button">Learn More</Link>
+              <Link to="/about" className="pure-hub-light-button btn-slide" data-label="Learn More"><span className="btn-text">Learn More</span></Link>
             </div>
           </div>
         </div>
@@ -174,8 +174,8 @@ export default function AboutSection() {
 
             <div className="pure-hub-showcase-bottom">
               <strong>{activeExperience.price}</strong>
-              <Link to="/products" className="pure-hub-outline-button">
-                Buy Now <ArrowUpRight />
+              <Link to="/products" className="pure-hub-outline-button btn-slide" data-label="Buy Now">
+                <span className="btn-text">Buy Now</span> <ArrowUpRight />
               </Link>
             </div>
           </article>
@@ -205,7 +205,7 @@ export default function AboutSection() {
         <div className="pure-hub-avatar-cloud">
           <EmptyImage className="pure-hub-avatar pure-hub-avatar-one" />
           <EmptyImage className="pure-hub-avatar pure-hub-avatar-two" />
-          <Link to="/products" className="pure-hub-view-more">View More</Link>
+          <Link to="/products" className="pure-hub-view-more btn-slide" data-label="View More"><span className="btn-text">View More</span></Link>
           <EmptyImage className="pure-hub-avatar pure-hub-avatar-three" />
           <EmptyImage className="pure-hub-avatar pure-hub-avatar-four" />
           <EmptyImage className="pure-hub-avatar pure-hub-avatar-main" />
@@ -276,7 +276,7 @@ export default function AboutSection() {
           <div className="pure-hub-contact-content">
             <h2>Get In Touch<br />With Us</h2>
             <p>Know more about how we work and contact us for a newsletter or collaboration</p>
-            <Link to="/contact" className="pure-hub-light-button">Contact Us</Link>
+            <Link to="/contact" className="pure-hub-light-button btn-slide" data-label="Contact Us"><span className="btn-text">Contact Us</span></Link>
           </div>
           <p className="pure-hub-contact-address">1 Tampines Drive #01-99 abc<br />space Singapore 123456</p>
           <div className="pure-hub-contact-socials" aria-label="Social links">
