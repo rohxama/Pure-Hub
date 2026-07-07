@@ -124,9 +124,8 @@ export default function Navbar() {
               <Link
                 to="/products"
                 className="pure-hub-shop-button btn-slide hidden sm:inline-flex"
-                data-label="Shop Now"
               >
-                <span className="btn-text">Shop Now</span>
+                <div className="btn-slide-inner"><span className="btn-text">Shop Now</span><span className="btn-slide-text-alt" aria-hidden="true">Shop Now</span></div>
               </Link>
 
               <button
@@ -173,9 +172,8 @@ export default function Navbar() {
             <Link
               to="/products"
               className="flex items-center justify-center w-full py-3.5 bg-neutral-900 text-white rounded-full text-sm font-medium hover:bg-neutral-800 transition-all duration-300 btn-slide"
-              data-label="Shop Now"
             >
-              <span className="btn-text">Shop Now</span>
+              <div className="btn-slide-inner"><span className="btn-text">Shop Now</span><span className="btn-slide-text-alt" aria-hidden="true">Shop Now</span></div>
             </Link>
           </div>
 
