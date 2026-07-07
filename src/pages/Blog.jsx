@@ -57,8 +57,8 @@ export default function Blog() {
               <p>{post.category} <span>•</span> {post.date}</p>
               <h2>{post.title}</h2>
               <p>{post.copy}</p>
-              <Link to="/blog" className="btn-slide" data-label="Read More">
-                <span className="btn-text">Read More</span> <InlineArrow />
+              <Link to="/blog" className="btn-slide">
+                <div className="btn-slide-inner"><span className="btn-text">Read More</span><span className="btn-slide-text-alt" aria-hidden="true">Read More</span></div> <InlineArrow />
               </Link>
             </article>
           ))}
