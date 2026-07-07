@@ -29,7 +29,7 @@ export default function Categories() {
                 <img
                   src={category.image}
                   alt={category.name}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6">
@@ -37,7 +37,7 @@ export default function Categories() {
                   <p className="text-white/70 text-sm mt-1">{category.description}</p>
                   <div className="mt-3 inline-flex items-center gap-1 text-white/80 text-sm font-medium group-hover:text-white transition-colors">
                     Shop Now
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-4 h-4" />
                   </div>
                 </div>
               </Link>
