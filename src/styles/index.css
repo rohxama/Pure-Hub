@@ -323,17 +323,12 @@ button {
   background: none;
   font: inherit;
   color: inherit;
-  transition: color 220ms ease, background-color 220ms ease, border-color 220ms ease, opacity 220ms ease, transform 220ms ease, box-shadow 220ms ease;
-}
-
-a:hover,
-button:hover {
-  transform: translateY(-1px);
+  transition: color 220ms ease, background-color 220ms ease, border-color 220ms ease, opacity 220ms ease, box-shadow 220ms ease;
 }
 
 a:active,
 button:active {
-  transform: translateY(0);
+  transform: none;
 }
 
 /* Input reset */
@@ -1420,7 +1415,7 @@ select {
   min-height: 100vh;
   overflow: hidden;
   background: #ffffff;
-  padding: 7rem 3rem 3.5rem;
+  padding: 9rem 3rem 3.5rem;
 }
 
 .pure-hub-hero-glow {
@@ -1933,7 +1928,6 @@ select {
 
 .pure-hub-related-card:hover {
   border-color: var(--color-neutral-400);
-  transform: translateY(-2px);
 }
 
 .pure-hub-related-image {
