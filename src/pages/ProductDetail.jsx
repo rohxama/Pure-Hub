@@ -191,9 +191,9 @@ export default function ProductDetail() {
               </label>
             </div>
 
-            <button type="button" onClick={addCurrentToCart} className="pure-hub-add-cart btn-slide" data-label="Add to cart"><span className="btn-text">Add to cart</span></button>
-            <button type="button" className="pure-hub-favorite btn-slide" data-label="Favorite">
-              <span className="btn-text">Favorite</span> <Heart />
+            <button type="button" onClick={addCurrentToCart} className="pure-hub-add-cart btn-slide"><div className="btn-slide-inner"><span className="btn-text">Add to cart</span><span className="btn-slide-text-alt" aria-hidden="true">Add to cart</span></div></button>
+            <button type="button" className="pure-hub-favorite btn-slide">
+              <div className="btn-slide-inner"><span className="btn-text">Favorite</span><span className="btn-slide-text-alt" aria-hidden="true">Favorite</span></div> <Heart />
             </button>
 
             <div className="ph-product-meta">
@@ -210,9 +210,8 @@ export default function ProductDetail() {
                   type="button"
                   onClick={() => setActiveTab(tab.id)}
                   className={activeTab === tab.id ? 'pure-hub-tab-active btn-slide' : 'btn-slide'}
-                  data-label={tab.label}
                 >
-                  <span className="btn-text">{tab.label}</span>
+                  <div className="btn-slide-inner"><span className="btn-text">{tab.label}</span><span className="btn-slide-text-alt" aria-hidden="true">{tab.label}</span></div>
                 </button>
               ))}
             </div>
@@ -234,9 +233,8 @@ export default function ProductDetail() {
               type="button"
               onClick={() => setActiveTab(item.id)}
               className={`${activeTab === item.id ? 'ph-active ' : ''}btn-slide`}
-              data-label={item.label}
             >
-              <span className="btn-text">{item.label}</span>
+              <div className="btn-slide-inner"><span className="btn-text">{item.label}</span><span className="btn-slide-text-alt" aria-hidden="true">{item.label}</span></div>
             </button>
           ))}
         </div>
@@ -273,7 +271,7 @@ export default function ProductDetail() {
               </p>
             ))}
           </div>
-          <button type="button" className="btn-slide" data-label="Write A Review"><span className="btn-text">Write A Review</span></button>
+          <button type="button" className="btn-slide"><div className="btn-slide-inner"><span className="btn-text">Write A Review</span><span className="btn-slide-text-alt" aria-hidden="true">Write A Review</span></div></button>
         </div>
 
         {[
@@ -335,8 +333,8 @@ export default function ProductDetail() {
         </div>
 
           <div className="pure-hub-more-products">
-          <Link to="/products" className="btn-slide" data-label="More products">
-            <span className="btn-text">More products</span> <ArrowRight />
+          <Link to="/products" className="btn-slide">
+            <div className="btn-slide-inner"><span className="btn-text">More products</span><span className="btn-slide-text-alt" aria-hidden="true">More products</span></div> <ArrowRight />
           </Link>
         </div>
       </section>
