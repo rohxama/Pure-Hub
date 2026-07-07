@@ -39,7 +39,7 @@ export default function Products() {
 
       <section className="ph-products-layout">
         <aside className="ph-filter-panel">
-          <button type="button" className="ph-filter-trigger"><SlidersHorizontal /> Filter</button>
+          <button type="button" className="ph-filter-trigger btn-slide" data-label="Filter"><SlidersHorizontal /> <span className="btn-text">Filter</span></button>
           <FilterGroup title="Categories" items={categories} active={category} setActive={setCategory} />
           <FilterGroup title="Skin Type" items={skinTypes} active={skinType} setActive={setSkinType} />
           <div className="ph-filter-block">
@@ -71,9 +71,10 @@ export default function Products() {
                   setChip(item)
                   setPage(1)
                 }}
-                className={chip === item ? 'ph-active' : ''}
+                className={`${chip === item ? 'ph-active ' : ''}btn-slide`}
+                data-label={item}
               >
-                {item}
+                <span className="btn-text">{item}</span>
               </button>
             ))}
           </div>
