@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useCart } from '@/context/CartContext'
 import { NAV_LINKS } from '@/constants'
+import logoSrc from '@/assets/logo.png'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -75,10 +76,8 @@ export default function Navbar() {
       >
         <div className="pure-hub-nav-shell">
           <div className="pure-hub-nav-bar">
-            <Link to="/" className="flex items-center shrink-0">
-              <span className="pure-hub-logo">
-                Pure Hub
-              </span>
+            <Link to="/" className="flex items-center shrink-0 overflow-hidden">
+              <img src={logoSrc} alt="Pure Hub" className="max-h-20 sm:max-h-25 w-auto object-contain block " />
             </Link>
 
             <nav className="pure-hub-nav-links hidden lg:flex">
