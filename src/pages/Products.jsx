@@ -39,7 +39,7 @@ export default function Products() {
 
       <section className="ph-products-layout">
         <aside className="ph-filter-panel">
-          <button type="button" className="ph-filter-trigger btn-slide" data-label="Filter"><SlidersHorizontal /> <span className="btn-text">Filter</span></button>
+          <button type="button" className="ph-filter-trigger btn-slide"><SlidersHorizontal /> <div className="btn-slide-inner"><span className="btn-text">Filter</span><span className="btn-slide-text-alt" aria-hidden="true">Filter</span></div></button>
           <FilterGroup title="Categories" items={categories} active={category} setActive={setCategory} />
           <FilterGroup title="Skin Type" items={skinTypes} active={skinType} setActive={setSkinType} />
           <div className="ph-filter-block">
@@ -72,9 +72,8 @@ export default function Products() {
                   setPage(1)
                 }}
                 className={`${chip === item ? 'ph-active ' : ''}btn-slide`}
-                data-label={item}
               >
-                <span className="btn-text">{item}</span>
+                <div className="btn-slide-inner"><span className="btn-text">{item}</span><span className="btn-slide-text-alt" aria-hidden="true">{item}</span></div>
               </button>
             ))}
           </div>
