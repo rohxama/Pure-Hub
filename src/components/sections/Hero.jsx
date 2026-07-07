@@ -43,9 +43,11 @@ export default function Hero() {
           <Link
             to="/products"
             className="pure-hub-hero-button btn-slide"
-            data-label="Learn More"
           >
-            <span className="btn-text">Learn More</span>
+            <div className="btn-slide-inner">
+              <span className="btn-text">Learn More</span>
+              <span className="btn-slide-text-alt" aria-hidden="true">Learn More</span>
+            </div>
           </Link>
         </motion.div>
       </div>
