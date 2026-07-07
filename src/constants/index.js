@@ -3,7 +3,6 @@ export const NAV_LINKS = [
   { name: 'Products', path: '/products' },
   { name: 'About Us', path: '/about' },
   { name: 'Blog', path: '/blog' },
-  { name: 'Pages', path: '/pages' },
   { name: 'Contact Us', path: '/contact' },
 ]
 
