@@ -30,9 +30,10 @@ export default function FeaturedProducts() {
         >
           <Link
             to="/products"
-            className="group inline-flex items-center gap-2 px-8 py-4 bg-dark-900 text-white rounded-xl text-sm font-semibold hover:bg-dark-800 transition-all duration-300 shadow-lg shadow-dark-900/20"
+            className="group inline-flex items-center gap-2 px-8 py-4 bg-dark-900 text-white rounded-xl text-sm font-semibold hover:bg-dark-800 transition-all duration-300 shadow-lg shadow-dark-900/20 btn-slide"
+            data-label="View All Products"
           >
-            View All Products
+            <span className="btn-text">View All Products</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
         </motion.div>
