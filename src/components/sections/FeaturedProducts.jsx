@@ -33,7 +33,7 @@ export default function FeaturedProducts() {
             className="group inline-flex items-center gap-2 px-8 py-4 bg-dark-900 text-white rounded-xl text-sm font-semibold hover:bg-dark-800 transition-all duration-300 shadow-lg shadow-dark-900/20"
           >
             View All Products
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="w-4 h-4" />
           </Link>
         </motion.div>
       </div>
