@@ -49,7 +49,7 @@ export default function About() {
         <h2>The Power Of Nature<br />For <span>Glowing Skin</span></h2>
         <div>
           <p>We combine the best of nature and science to create skincare that is gentle, effective, and honest.</p>
-          <Link to="/products">Discover Products</Link>
+          <Link to="/products" className="btn-slide" data-label="Discover Products"><span className="btn-text">Discover Products</span></Link>
         </div>
       </section>
 
