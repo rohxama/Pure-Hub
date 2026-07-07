@@ -42,9 +42,10 @@ export default function Hero() {
           </p>
           <Link
             to="/products"
-            className="pure-hub-hero-button"
+            className="pure-hub-hero-button btn-slide"
+            data-label="Learn More"
           >
-            Learn More
+            <span className="btn-text">Learn More</span>
           </Link>
         </motion.div>
       </div>
