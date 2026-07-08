@@ -44,7 +44,7 @@ const blogTiles = [
   { title: 'Get The Perfect Glow For The Summer', tone: 'dark' },
 ]
 
-const footerLinks = ['Home', 'Products', 'About Us', 'Blog', 'Faqs', 'Contact Us']
+const footerLinks = ['Home', 'Products', 'About', 'Blog', 'Contact']
 
 function EmptyImage({ className = '' }) {
   return (
@@ -80,6 +80,7 @@ const reviews = [
 export default function AboutSection() {
   const [experienceIndex, setExperienceIndex] = useState(0)
   const [catalogueIndex, setCatalogueIndex] = useState(0)
+  const [catalogueDir, setCatalogueDir] = useState(1)
   const [reviewIndex, setReviewIndex] = useState(0)
 
   const activeExperience = experienceSlides[experienceIndex]
@@ -103,6 +104,7 @@ export default function AboutSection() {
   }
 
   const goCatalogue = (direction) => {
+    setCatalogueDir(direction)
     setCatalogueIndex((current) => (
       (current + direction + catalogueProducts.length) % catalogueProducts.length
     ))
@@ -175,7 +177,7 @@ export default function AboutSection() {
             <div className="pure-hub-showcase-bottom">
               <strong>{activeExperience.price}</strong>
               <Link to="/products" className="pure-hub-outline-button btn-slide">
-                <div className="btn-slide-inner"><span className="btn-text">Buy Now</span><span className="btn-slide-text-alt" aria-hidden="true">Buy Now</span></div> <ArrowUpRight />
+                <div className="btn-slide-inner"><span className="btn-text">Buy Now <ArrowUpRight className="pure-hub-buy-icon" /></span><span className="btn-slide-text-alt" aria-hidden="true">Buy Now <ArrowUpRight className="pure-hub-buy-icon" /></span></div>
               </Link>
             </div>
           </article>
@@ -223,8 +225,8 @@ export default function AboutSection() {
             <h2>Our Skincare Products</h2>
           </div>
           <div className="pure-hub-slider-controls">
-            <button type="button" onClick={() => goCatalogue(-1)} aria-label="Previous catalogue products"><ArrowLeft /></button>
-            <button type="button" onClick={() => goCatalogue(1)} className="pure-hub-slider-active" aria-label="Next catalogue products"><ArrowRight /></button>
+            <button type="button" onClick={() => goCatalogue(-1)} className={catalogueDir === -1 ? 'pure-hub-slider-active' : ''} aria-label="Previous catalogue products"><ArrowLeft /></button>
+            <button type="button" onClick={() => goCatalogue(1)} className={catalogueDir === 1 ? 'pure-hub-slider-active' : ''} aria-label="Next catalogue products"><ArrowRight /></button>
           </div>
         </div>
 
@@ -238,9 +240,9 @@ export default function AboutSection() {
               transition={{ duration: 0.28, delay: index * 0.04 }}
             >
               <div className="pure-hub-card-topline">
-                <h3>{product}</h3>
-                <Link to="/products" aria-label={`View ${product}`}>
-                  $00 <ArrowUpRight />
+                <h3><Link to={`/product/${product.toLowerCase().replaceAll(' ', '-')}`}>{product}</Link></h3>
+                <Link to={`/product/${product.toLowerCase().replaceAll(' ', '-')}`} className="btn-slide" aria-label={`View ${product}`}>
+                  <div className="btn-slide-inner"><span className="btn-text">$00 <ArrowUpRight /></span><span className="btn-slide-text-alt" aria-hidden="true">$00 <ArrowUpRight /></span></div>
                 </Link>
               </div>
               <EmptyImage className="pure-hub-catalogue-image" />
@@ -255,15 +257,17 @@ export default function AboutSection() {
         <div className="pure-hub-blog-grid">
           {blogTiles.map((tile, index) => (
             <article className={`pure-hub-blog-card ${tile.size === 'large' ? 'pure-hub-blog-large' : ''} ${tile.tone === 'light' ? 'pure-hub-blog-light' : ''}`} key={`${tile.title}-${index}`}>
-              <EmptyImage className="pure-hub-blog-image" />
+              <Link to="/blog" className="pure-hub-blog-image-link" aria-label={`Read ${tile.title}`}>
+                <EmptyImage className="pure-hub-blog-image" />
+              </Link>
               <h3>{tile.title}</h3>
               {tile.price ? (
-                <Link to="/products" className="pure-hub-blog-price">
-                  {tile.price} <ArrowUpRight />
+                <Link to="/products" className="pure-hub-blog-price btn-slide">
+                  <div className="btn-slide-inner"><span className="btn-text">{tile.price} <ArrowUpRight /></span><span className="btn-slide-text-alt" aria-hidden="true">{tile.price} <ArrowUpRight /></span></div>
                 </Link>
               ) : null}
-              <Link to="/blog" className="pure-hub-blog-arrow" aria-label={`Read ${tile.title}`}>
-                <ArrowUpRight />
+              <Link to="/blog" className="pure-hub-blog-arrow btn-slide" aria-label={`Read ${tile.title}`}>
+                <div className="btn-slide-inner"><span className="btn-text"><ArrowUpRight /></span><span className="btn-slide-text-alt" aria-hidden="true"><ArrowUpRight /></span></div>
               </Link>
             </article>
           ))}
