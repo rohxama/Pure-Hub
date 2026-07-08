@@ -2008,10 +2008,6 @@ select {
 
 .pure-hub-about-content {
   padding: 5.75rem 3rem 4rem;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
 .pure-hub-about-title {
@@ -2069,9 +2065,9 @@ select {
 
 .pure-hub-about-image {
   width: 100%;
-  height: clamp(18rem, 34vw, 29rem);
+  flex: 1;
+  min-height: 0;
   background: #262626;
-  flex-shrink: 0;
 }
 
 .pure-hub-experience,
@@ -3132,7 +3128,7 @@ select {
   }
 
   .pure-hub-about-image {
-    height: 18rem;
+    min-height: 18rem;
   }
 
   .pure-hub-experience-grid,
