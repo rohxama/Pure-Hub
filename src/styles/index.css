@@ -2007,7 +2007,7 @@ select {
 }
 
 .pure-hub-about-content {
-  padding: 5.75rem 3rem 4rem;
+  padding: 2rem 3rem 2rem;
 }
 
 .pure-hub-about-title {
@@ -2074,33 +2074,33 @@ select {
 .pure-hub-catalogue {
   background: #ffffff;
   color: #050505;
-  padding: 5.5rem 3rem;
+  padding: 2rem 3rem;
 }
 
 .pure-hub-experience-title,
 .pure-hub-section-heading-row h2,
 .pure-hub-blogs h2 {
   font-family: var(--font-sans);
-  font-size: clamp(3.9rem, 6.4vw, 7rem);
+  font-size: clamp(2.5rem, 4vw, 4rem);
   font-weight: 300;
   line-height: 1;
   letter-spacing: 0;
 }
 
 .pure-hub-experience-title {
-  margin-top: 1.25rem;
+  margin-top: 0.75rem;
 }
 
 .pure-hub-experience-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.25rem;
-  margin-top: 2.5rem;
+  gap: 1rem;
+  margin-top: 1.5rem;
 }
 
 .pure-hub-experience-image,
 .pure-hub-product-showcase {
-  min-height: clamp(28rem, 43vw, 43rem);
+  min-height: clamp(20rem, 30vw, 30rem);
   border-radius: 1rem;
 }
 
@@ -2113,7 +2113,7 @@ select {
   flex-direction: column;
   justify-content: space-between;
   background: #f0f0f0;
-  padding: 2.25rem;
+  padding: 1.5rem;
 }
 
 .pure-hub-showcase-top,
@@ -2126,7 +2126,7 @@ select {
 }
 
 .pure-hub-showcase-top h3 {
-  font-size: clamp(2rem, 3vw, 3.25rem);
+  font-size: clamp(1.5rem, 2.5vw, 2.5rem);
   font-weight: 300;
   line-height: 0.96;
 }
@@ -2184,14 +2184,14 @@ select {
 }
 
 .pure-hub-showcase-image {
-  width: min(58%, 24rem);
+  width: min(55%, 18rem);
   aspect-ratio: 1.2;
   border-radius: 1rem;
   background: #d9d1c6;
 }
 
 .pure-hub-showcase-bottom strong {
-  font-size: clamp(2rem, 3vw, 3.5rem);
+  font-size: clamp(1.5rem, 2.5vw, 2.5rem);
   font-weight: 300;
 }
 
