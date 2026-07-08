@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowDownLeft } from 'lucide-react'
 
@@ -10,18 +11,23 @@ const featureRows = [
   {
     number: '02',
     title: 'Innovative Formulations',
+    description: 'Advanced science meets nature for visible and lasting skincare results',
   },
   {
     number: '03',
     title: 'Eco-Friendly Packaging',
+    description: 'Sustainable materials and responsible practices for a better tomorrow',
   },
   {
     number: '04',
     title: 'Dermatologist-Tested',
+    description: 'Every product is rigorously tested for safety, quality, and effectiveness',
   },
 ]
 
 export default function Features() {
+  const [hoveredFeature, setHoveredFeature] = useState('01')
+
   return (
     <section className="pure-hub-features">
       <motion.div
@@ -45,16 +51,20 @@ export default function Features() {
 
         <div className="pure-hub-features-list">
           {featureRows.map((feature) => (
-            <div className="pure-hub-feature-row" key={feature.number}>
+            <div
+              className="pure-hub-feature-row"
+              key={feature.number}
+              onMouseEnter={() => setHoveredFeature(feature.number)}
+              onMouseLeave={() => setHoveredFeature('01')}
+            >
               <span className="pure-hub-feature-number">{feature.number}</span>
               <h3 className="pure-hub-feature-title">{feature.title}</h3>
-              {feature.description ? (
-                <p className="pure-hub-feature-description">{feature.description}</p>
-              ) : (
+              <div className="pure-hub-feature-right">
+                <p className={`pure-hub-feature-description ${hoveredFeature === feature.number ? 'pure-hub-desc-visible' : ''}`}>{feature.description}</p>
                 <span className="pure-hub-feature-arrow" aria-hidden="true">
                   <ArrowDownLeft />
                 </span>
-              )}
+              </div>
             </div>
           ))}
         </div>
