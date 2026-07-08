@@ -26,7 +26,7 @@ const featureRows = [
 ]
 
 export default function Features() {
-  const [hoveredFeature, setHoveredFeature] = useState('01')
+  const [hoveredFeature, setHoveredFeature] = useState(null)
 
   return (
     <section className="pure-hub-features">
@@ -55,10 +55,13 @@ export default function Features() {
               className="pure-hub-feature-row"
               key={feature.number}
               onMouseEnter={() => setHoveredFeature(feature.number)}
-              onMouseLeave={() => setHoveredFeature('01')}
+              onMouseLeave={() => setHoveredFeature(null)}
             >
               <span className="pure-hub-feature-number">{feature.number}</span>
-              <h3 className="pure-hub-feature-title">{feature.title}</h3>
+              <div className="pure-hub-feature-title-group">
+                <h3 className="pure-hub-feature-title">{feature.title}</h3>
+                <img className={`pure-hub-feature-image ${hoveredFeature === feature.number ? 'pure-hub-img-visible' : ''}`} alt="" />
+              </div>
               <div className="pure-hub-feature-right">
                 <p className={`pure-hub-feature-description ${hoveredFeature === feature.number ? 'pure-hub-desc-visible' : ''}`}>{feature.description}</p>
                 <span className="pure-hub-feature-arrow" aria-hidden="true">
