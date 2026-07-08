@@ -27,6 +27,7 @@ const featureRows = [
 
 export default function Features() {
   const [hoveredFeature, setHoveredFeature] = useState(null)
+  const [activeFeature, setActiveFeature] = useState(null)
 
   return (
     <section className="pure-hub-features">
@@ -56,6 +57,7 @@ export default function Features() {
               key={feature.number}
               onMouseEnter={() => setHoveredFeature(feature.number)}
               onMouseLeave={() => setHoveredFeature(null)}
+              onClick={() => setActiveFeature(feature.number)}
             >
               <span className="pure-hub-feature-number">{feature.number}</span>
               <div className="pure-hub-feature-title-group">
@@ -64,7 +66,7 @@ export default function Features() {
               </div>
               <div className="pure-hub-feature-right">
                 <p className={`pure-hub-feature-description ${hoveredFeature === feature.number ? 'pure-hub-desc-visible' : ''}`}>{feature.description}</p>
-                <span className="pure-hub-feature-arrow" aria-hidden="true">
+                <span className={`pure-hub-feature-arrow ${activeFeature === feature.number ? 'pure-hub-arrow-active' : ''}`}>
                   <ArrowDownLeft />
                 </span>
               </div>
