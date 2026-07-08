@@ -91,7 +91,7 @@ export default function Contact() {
       </section>
 
       <Newsletter />
-      <PageFooter active="Contact Us" />
+      <PageFooter active="Contact" />
     </main>
   )
 }
