@@ -109,7 +109,7 @@ export default function About() {
       </section>
 
       <ContactBand />
-      <PageFooter active="About Us" />
+      <PageFooter active="About" />
     </main>
   )
 }
