@@ -1,9 +1,9 @@
 export const NAV_LINKS = [
   { name: 'Home', path: '/' },
   { name: 'Products', path: '/products' },
-  { name: 'About Us', path: '/about' },
+  { name: 'About', path: '/about' },
   { name: 'Blog', path: '/blog' },
-  { name: 'Contact Us', path: '/contact' },
+  { name: 'Contact', path: '/contact' },
 ]
 
 export const FOOTER_LINKS = {
@@ -14,7 +14,7 @@ export const FOOTER_LINKS = {
     { name: 'Sale', path: '/products?filter=sale' },
   ],
   Company: [
-    { name: 'About Us', path: '/about' },
+    { name: 'About', path: '/about' },
     { name: 'Contact', path: '/contact' },
     { name: 'Careers', path: '#' },
     { name: 'Press', path: '#' },
