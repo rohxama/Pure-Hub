@@ -2104,14 +2104,14 @@ select {
 }
 
 .pure-hub-experience-title {
-  margin-top: 0.75rem;
+  margin-top: 1.5rem;
 }
 
 .pure-hub-experience-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.25rem;
-  margin-top: 1.5rem;
+  margin-top: 2.5rem;
   flex: 1;
   min-height: 0;
 }
