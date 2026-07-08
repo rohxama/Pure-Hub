@@ -2001,10 +2001,17 @@ select {
 .pure-hub-about-panel {
   background: #000000;
   color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .pure-hub-about-content {
   padding: 5.75rem 3rem 4rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .pure-hub-about-title {
@@ -2064,6 +2071,7 @@ select {
   width: 100%;
   height: clamp(18rem, 34vw, 29rem);
   background: #262626;
+  flex-shrink: 0;
 }
 
 .pure-hub-experience,
