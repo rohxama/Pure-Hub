@@ -2733,6 +2733,17 @@ select {
   width: 1rem;
   height: 1rem;
   stroke-width: 1.8;
+  transition: color 0.3s ease;
+}
+
+.pure-hub-arrow-active {
+  background: #5a4639;
+  border-color: #5a4639;
+  color: #ffffff;
+}
+
+.pure-hub-arrow-active svg {
+  color: #ffffff;
 }
 
 @media (max-width: 900px) {
