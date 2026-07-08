@@ -41,7 +41,7 @@ export default function Hero() {
             
           </p>
           <Link
-            to="/products"
+            to="/blog"
             className="pure-hub-hero-button btn-slide"
           >
             <div className="btn-slide-inner">
