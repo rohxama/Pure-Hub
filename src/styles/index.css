@@ -1494,6 +1494,11 @@ select {
   line-height: 1.55;
 }
 
+.pure-hub-buy-icon {
+  margin-left: 0.35rem;
+  vertical-align: middle;
+}
+
 .pure-hub-hero-button {
   display: inline-flex;
   min-width: 10rem;
@@ -1505,12 +1510,6 @@ select {
   color: #050505;
   font-size: 1rem;
   font-weight: 500;
-  transition: background-color 250ms ease, color 250ms ease;
-}
-
-.pure-hub-hero-button:hover {
-  background: #050505;
-  color: #ffffff;
 }
 
 /* Pure Hub features */
@@ -2385,7 +2384,7 @@ select {
   font-weight: 500;
 }
 
-.pure-hub-card-topline a {
+.pure-hub-card-topline > a {
   display: inline-flex;
   align-items: center;
   gap: 0.25rem;
@@ -2442,6 +2441,12 @@ select {
 .pure-hub-blog-light {
   background: #ffffff;
   color: #050505;
+}
+
+.pure-hub-blog-image-link {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
 }
 
 .pure-hub-blog-image {
@@ -3217,16 +3222,19 @@ select {
 }
 
 .btn-slide .btn-text {
-  display: block;
-  transition: transform 1.125s cubic-bezier(0.19, 1, 0.22, 1);
+  display: inline-flex;
+  white-space: nowrap;
+  vertical-align: top;
+  transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .btn-slide-text-alt {
+  display: inline-flex;
   position: absolute;
   top: 1.75rem;
   left: 0;
   width: 100%;
-  transition: top 1.125s cubic-bezier(0.19, 1, 0.22, 1);
+  transition: top 0.6s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .btn-slide:hover .btn-text {
