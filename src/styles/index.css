@@ -2727,23 +2727,19 @@ select {
   flex-shrink: 0;
   border: 1px solid rgba(5, 5, 5, 0.55);
   border-radius: 9999px;
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.pure-hub-feature-row:hover .pure-hub-feature-arrow {
+  background: #050505;
+  border-color: #050505;
+  color: #ffffff;
 }
 
 .pure-hub-feature-arrow svg {
   width: 1rem;
   height: 1rem;
   stroke-width: 1.8;
-  transition: color 0.3s ease;
-}
-
-.pure-hub-arrow-active {
-  background: #5a4639;
-  border-color: #5a4639;
-  color: #ffffff;
-}
-
-.pure-hub-arrow-active svg {
-  color: #ffffff;
 }
 
 @media (max-width: 900px) {
