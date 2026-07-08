@@ -55,9 +55,9 @@ export function PageFooter({ active = 'Home' }) {
   const links = [
     ['Home', '/'],
     ['Products', '/products'],
-    ['About Us', '/about'],
+    ['About', '/about'],
     ['Blog', '/blog'],
-    ['Contact Us', '/contact'],
+    ['Contact', '/contact'],
   ]
 
   return (
