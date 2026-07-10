@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ArrowLeft, ArrowRight, ArrowUpRight, Camera, Mail, MessageCircle, Phone, Star } from 'lucide-react'
-import abtSecImg from '../../assets/abt-img.jpg'
+import abtSecImg from '../../assets/abt-img.png'
 
 const experienceSlides = [
   {
