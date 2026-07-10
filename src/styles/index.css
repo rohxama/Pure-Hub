@@ -2147,7 +2147,7 @@ select {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: top;
+  object-position: center;
   background: #c8b8ad;
 }
 
