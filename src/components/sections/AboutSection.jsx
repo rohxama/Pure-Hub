@@ -9,6 +9,15 @@ import productExp3Img from '../../assets/product-exp3.png'
 import maskExpImg from '../../assets/mask-exp.png'
 import hairOilImg from '../../assets/hair-oil.png'
 import perfumeImg from '../../assets/perfume.png'
+import client1Img from '../../assets/client1.jpg'
+import client2Img from '../../assets/client2.jpg'
+import client3Img from '../../assets/client3.jpg'
+import client4Img from '../../assets/client4.jpg'
+import client5Img from '../../assets/client5.jpg'
+import client6Img from '../../assets/client6.jpg'
+import client7Img from '../../assets/client7.jpg'
+import client8Img from '../../assets/client8.jpg'
+import client9Img from '../../assets/client9.jpg'
 
 const experienceSlides = [
   {
@@ -221,16 +230,16 @@ export default function AboutSection() {
         </div>
 
         <div className="pure-hub-avatar-cloud">
-          <EmptyImage className="pure-hub-avatar pure-hub-avatar-one" />
-          <EmptyImage className="pure-hub-avatar pure-hub-avatar-two" />
+          <img src={client1Img} alt="" className="pure-hub-avatar pure-hub-avatar-one" />
+          <img src={client2Img} alt="" className="pure-hub-avatar pure-hub-avatar-two" />
           <Link to="/products" className="pure-hub-view-more btn-slide"><div className="btn-slide-inner"><span className="btn-text">View More</span><span className="btn-slide-text-alt" aria-hidden="true">View More</span></div></Link>
-          <EmptyImage className="pure-hub-avatar pure-hub-avatar-three" />
-          <EmptyImage className="pure-hub-avatar pure-hub-avatar-four" />
-          <EmptyImage className="pure-hub-avatar pure-hub-avatar-main" />
-          <EmptyImage className="pure-hub-avatar pure-hub-avatar-five" />
-          <EmptyImage className="pure-hub-avatar pure-hub-avatar-six" />
-          <EmptyImage className="pure-hub-avatar pure-hub-avatar-seven" />
-          <EmptyImage className="pure-hub-avatar pure-hub-avatar-eight" />
+          <img src={client3Img} alt="" className="pure-hub-avatar pure-hub-avatar-three" />
+          <img src={client4Img} alt="" className="pure-hub-avatar pure-hub-avatar-four" />
+          <img src={client5Img} alt="" className="pure-hub-avatar pure-hub-avatar-main" />
+          <img src={client6Img} alt="" className="pure-hub-avatar pure-hub-avatar-five" />
+          <img src={client7Img} alt="" className="pure-hub-avatar pure-hub-avatar-six" />
+          <img src={client8Img} alt="" className="pure-hub-avatar pure-hub-avatar-seven" />
+          <img src={client9Img} alt="" className="pure-hub-avatar pure-hub-avatar-eight" />
         </div>
       </section>
 

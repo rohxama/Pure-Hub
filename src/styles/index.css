@@ -2235,13 +2235,13 @@ select {
   background: #d9d1c6;
 }
 
-.pure-hub-slide-left-0 { object-position: center; }
-.pure-hub-slide-left-1 { object-position: top; }
-.pure-hub-slide-left-2 { object-position: top; }
+.pure-hub-slide-left-0 { object-position: top; }
+.pure-hub-slide-left-1 { object-position: center; }
+.pure-hub-slide-left-2 { object-position: center; }
 
-.pure-hub-slide-right-0 { object-position: center; }
-.pure-hub-slide-right-1 { object-position: bottom; }
-.pure-hub-slide-right-2 { object-position: bottom; }
+.pure-hub-slide-right-0 { object-position: bottom; }
+.pure-hub-slide-right-1 { object-position: center; }
+.pure-hub-slide-right-2 { object-position: center; }
 
 .pure-hub-showcase-bottom strong {
   font-size: clamp(2rem, 3vw, 3.5rem);
@@ -2309,6 +2309,8 @@ select {
 .pure-hub-avatar {
   position: absolute;
   border-radius: 9999px;
+  object-fit: cover;
+  object-position: top;
   background: #dedede;
 }
 
