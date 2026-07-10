@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowDownLeft } from 'lucide-react'
+import featureSecMainImg from '../../assets/feature-sec-main-img.png'
 
 const featureRows = [
   {
@@ -44,7 +45,7 @@ export default function Features() {
           <br />
           Skincare{' '}
           <span className="pure-hub-features-image" aria-hidden="true">
-            <img alt="" />
+            <img src={featureSecMainImg} alt="" />
           </span>{' '}
           Products
         </h2>

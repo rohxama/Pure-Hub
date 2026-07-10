@@ -1584,12 +1584,15 @@ select {
   height: clamp(2.45rem, 4.1vw, 4.2rem);
   margin: 0 0.28em;
   vertical-align: -0.08em;
-  border-radius: 9999px;
-  background: #d9d9d9;
+  overflow: hidden;
+  border-radius: 6px;
 }
 
 .pure-hub-features-image img {
-  display: none;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .pure-hub-image-slot {
