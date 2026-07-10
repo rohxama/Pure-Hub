@@ -1499,32 +1499,18 @@ select {
   vertical-align: middle;
 }
 
-.pure-hub-hero-actions {
-  display: flex;
-  gap: 1rem;
-  margin-top: 1.5rem;
-}
-
 .pure-hub-hero-button {
   display: inline-flex;
   min-width: 10rem;
   min-height: 3.5rem;
+  margin-top: 1.5rem;
   align-items: center;
   justify-content: center;
   border: 1px solid #050505;
   border-radius: 9999px;
+  color: #050505;
   font-size: 1rem;
   font-weight: 500;
-}
-
-.pure-hub-hero-button-primary {
-  background: #050505;
-  color: #ffffff;
-}
-
-.pure-hub-hero-button-secondary {
-  background: transparent;
-  color: #050505;
 }
 
 .pure-hub-hero-product-img {
@@ -1585,13 +1571,14 @@ select {
   margin: 0 0.28em;
   vertical-align: -0.08em;
   overflow: hidden;
-  border-radius: 6px;
+  border-radius: 9999px;
 }
 
 .pure-hub-features-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top;
   display: block;
 }
 
