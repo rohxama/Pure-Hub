@@ -3,8 +3,12 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ArrowLeft, ArrowRight, ArrowUpRight, Camera, Mail, MessageCircle, Phone, Star } from 'lucide-react'
 import abtSecImg from '../../assets/abt-img.png'
-import productExpImg from '../../assets/product-exp1.png'
+import productExp1Img from '../../assets/product-exp1.png'
+import productExp2Img from '../../assets/product-exp2.png'
+import productExp3Img from '../../assets/product-exp3.png'
 import maskExpImg from '../../assets/mask-exp.png'
+import hairOilImg from '../../assets/hair-oil.png'
+import perfumeImg from '../../assets/perfume.png'
 
 const experienceSlides = [
   {
@@ -13,6 +17,8 @@ const experienceSlides = [
     description: 'Soft and nourishing - eucalyptus and honey',
     reviews: '(5,662) Reviews',
     price: '$200.87',
+    leftImg: maskExpImg,
+    rightImg: productExp1Img,
   },
   {
     title: 'Body Lotion',
@@ -20,6 +26,8 @@ const experienceSlides = [
     description: 'Silky hydration - oat extract and almond',
     reviews: '(4,918) Reviews',
     price: '$180.00',
+    leftImg: hairOilImg,
+    rightImg: productExp2Img,
   },
   {
     title: 'Face Wash',
@@ -27,6 +35,8 @@ const experienceSlides = [
     description: 'Gentle cleanse - aloe and green tea',
     reviews: '(3,420) Reviews',
     price: '$145.00',
+    leftImg: perfumeImg,
+    rightImg: productExp3Img,
   },
 ]
 
@@ -149,7 +159,7 @@ export default function AboutSection() {
         <h2 className="pure-hub-experience-title">Soft, Nourishing And Tender</h2>
 
         <div className="pure-hub-experience-grid">
-          <img src={maskExpImg} alt="" className={`pure-hub-experience-image pure-hub-slide-tone-${experienceIndex}`} />
+          <img src={activeExperience.leftImg} alt="" className={`pure-hub-experience-image pure-hub-slide-tone-${experienceIndex}`} />
           <article className="pure-hub-product-showcase">
             <motion.div
               key={activeExperience.title}
@@ -173,7 +183,7 @@ export default function AboutSection() {
 
             <div className="pure-hub-showcase-body">
               <button type="button" onClick={() => goExperience(-1)} aria-label="Previous product"><ArrowLeft /></button>
-              <img src={productExpImg} alt="" className={`pure-hub-showcase-image pure-hub-slide-tone-${experienceIndex}`} />
+              <img src={activeExperience.rightImg} alt="" className={`pure-hub-showcase-image pure-hub-slide-tone-${experienceIndex}`} />
               <button type="button" onClick={() => goExperience(1)} aria-label="Next product"><ArrowRight /></button>
             </div>
 
