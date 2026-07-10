@@ -2029,7 +2029,7 @@ select {
 }
 
 .pure-hub-about-content {
-  padding: 2rem 3rem 2rem;
+  padding: 1rem 3rem 1.5rem;
 }
 
 .pure-hub-about-title {
@@ -2087,8 +2087,8 @@ select {
 
 .pure-hub-about-image {
   width: 100%;
-  height: clamp(18rem, 40vh, 30rem);
-  flex-shrink: 0;
+  flex: 1;
+  min-height: 0;
   object-fit: cover;
 }
 
