@@ -56,12 +56,12 @@ const experienceSlides = [
 ]
 
 const catalogueProducts = [
-  'Body Lotion',
-  'Face Wash',
-  'Barrier Restore',
-  'Sun Block',
-  'Night Cream',
-  'Glow Serum',
+  { name: 'Body Lotion', img: productExp1Img },
+  { name: 'Face Wash', img: productExp2Img },
+  { name: 'Barrier Restore', img: productExp3Img },
+  { name: 'Sun Block', img: product4Img },
+  { name: 'Night Cream', img: product5Img },
+  { name: 'Glow Serum', img: product6Img },
 ]
 
 const blogTiles = [
@@ -112,7 +112,7 @@ export default function AboutSection() {
   const [reviewIndex, setReviewIndex] = useState(0)
 
   const activeExperience = experienceSlides[experienceIndex]
-  const visibleCatalogue = Array.from({ length: 4 }, (_, index) => (
+  const visibleCatalogue = Array.from({ length: 3 }, (_, index) => (
     catalogueProducts[(catalogueIndex + index) % catalogueProducts.length]
   ))
 
@@ -262,18 +262,18 @@ export default function AboutSection() {
           {visibleCatalogue.map((product, index) => (
             <motion.article
               className="pure-hub-catalogue-card"
-              key={`${product}-${catalogueIndex}`}
+              key={`${product.name}-${catalogueIndex}`}
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.28, delay: index * 0.04 }}
             >
               <div className="pure-hub-card-topline">
-                <h3><Link to={`/product/${product.toLowerCase().replaceAll(' ', '-')}`}>{product}</Link></h3>
-                <Link to={`/product/${product.toLowerCase().replaceAll(' ', '-')}`} className="btn-slide" aria-label={`View ${product}`}>
+                <h3><Link to={`/product/${product.name.toLowerCase().replaceAll(' ', '-')}`}>{product.name}</Link></h3>
+                <Link to={`/product/${product.name.toLowerCase().replaceAll(' ', '-')}`} className="btn-slide" aria-label={`View ${product.name}`}>
                   <div className="btn-slide-inner"><span className="btn-text">$00 <ArrowUpRight /></span><span className="btn-slide-text-alt" aria-hidden="true">$00 <ArrowUpRight /></span></div>
                 </Link>
               </div>
-              <img src={[productExp1Img, productExp2Img, productExp3Img, product4Img, product5Img, product6Img][index]} alt="" className="pure-hub-catalogue-image" />
+              <img src={product.img} alt="" className="pure-hub-catalogue-image" />
             </motion.article>
           ))}
         </div>
