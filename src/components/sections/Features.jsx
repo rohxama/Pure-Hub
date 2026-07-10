@@ -2,27 +2,35 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowDownLeft } from 'lucide-react'
 import featureSecMainImg from '../../assets/feature-sec-main-img.png'
+import feature1Img from '../../assets/feature1-img.jpg'
+import feature2Img from '../../assets/feature2-img.jpg'
+import feature3Img from '../../assets/feature3-img.jpg'
+import feature4Img from '../../assets/feature4-img.jpg'
 
 const featureRows = [
   {
     number: '01',
     title: 'Natural Ingredients',
     description: 'Pure Hub Skincare products are formulated with the finest natural ingredients',
+    img: feature1Img,
   },
   {
     number: '02',
     title: 'Innovative Formulations',
     description: 'Advanced science meets nature for visible and lasting skincare results',
+    img: feature2Img,
   },
   {
     number: '03',
     title: 'Eco-Friendly Packaging',
     description: 'Sustainable materials and responsible practices for a better tomorrow',
+    img: feature3Img,
   },
   {
     number: '04',
     title: 'Dermatologist-Tested',
     description: 'Every product is rigorously tested for safety, quality, and effectiveness',
+    img: feature4Img,
   },
 ]
 
@@ -61,7 +69,7 @@ export default function Features() {
               <span className="pure-hub-feature-number">{feature.number}</span>
               <div className="pure-hub-feature-title-group">
                 <h3 className="pure-hub-feature-title">{feature.title}</h3>
-                <img className={`pure-hub-feature-image ${hoveredFeature === feature.number ? 'pure-hub-img-visible' : ''}`} alt="" />
+                <img src={feature.img} className={`pure-hub-feature-image ${hoveredFeature === feature.number ? 'pure-hub-img-visible' : ''}`} alt="" />
               </div>
               <div className="pure-hub-feature-right">
                 <p className={`pure-hub-feature-description ${hoveredFeature === feature.number ? 'pure-hub-desc-visible' : ''}`}>{feature.description}</p>
