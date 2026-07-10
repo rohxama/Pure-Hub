@@ -8,78 +8,62 @@ export default function Hero() {
       <div className="pure-hub-hero-glow" />
 
       <div className="pure-hub-hero-inner">
-        <div className="pure-hub-hero-content">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="pure-hub-hero-type"
-          >
-            <h1 className="pure-hub-hero-title">
-              <span className="pure-hub-hero-line pure-hub-hero-line-one">
-                <span className="pure-hub-serif">Nourish</span>
-                <span className="pure-hub-sans"> Your</span>
-              </span>
-              <span className="pure-hub-hero-line pure-hub-hero-line-two pure-hub-sans">
-                Skin, Embrace
-              </span>
-              <span className="pure-hub-hero-line pure-hub-hero-line-three">
-                <span className="pure-hub-sans">the </span>
-                <span className="pure-hub-serif">Pure Hub</span>
-              </span>
-            </h1>
-          </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          className="pure-hub-hero-type"
+        >
+          <h1 className="pure-hub-hero-title">
+            <span className="pure-hub-hero-line pure-hub-hero-line-one">
+              <span className="pure-hub-serif">Nourish</span>
+              <span className="pure-hub-sans"> Your</span>
+            </span>
+            <span className="pure-hub-hero-line pure-hub-hero-line-two pure-hub-sans">
+              Skin, Embrace
+            </span>
+            <span className="pure-hub-hero-line pure-hub-hero-line-three">
+              <span className="pure-hub-sans">the </span>
+              <span className="pure-hub-serif">Pure Hub</span>
+            </span>
+          </h1>
+        </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.55 }}
-            className="pure-hub-hero-bottom"
-          >
-            <p className="pure-hub-hero-copy">
-              Experience the Pure Hub of Perfect Skin.<br />
-              Nourish Your Skin, Embrace the Pure Hub.<br />
-              The Essence of Glowing Skin.
-            </p>
-            <Link
-              to="/blog"
-              className="pure-hub-hero-button btn-slide"
-            >
-              <div className="btn-slide-inner">
-                <span className="btn-text">Learn More</span>
-                <span className="btn-slide-text-alt" aria-hidden="true">Learn More</span>
-              </div>
-            </Link>
-          </motion.div>
-        </div>
+        <motion.div
+          className="pure-hub-hero-product"
+          initial={{ opacity: 0, y: 60, rotate: 0 }}
+          animate={{ opacity: 1, y: 0, rotate: -22 }}
+          transition={{ duration: 1.2, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          whileHover={{ rotate: -18, scale: 1.03, transition: { duration: 0.4 } }}
+        >
+          <img
+            src={heroProduct}
+            alt="Pure Hub Matcha Face Wash"
+            className="pure-hub-hero-product-img"
+          />
+        </motion.div>
 
-        <div className="pure-hub-hero-product-wrapper">
-          <motion.div
-            className="pure-hub-hero-screen"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.55 }}
+          className="pure-hub-hero-bottom"
+        >
+          <p className="pure-hub-hero-copy">
+            Experience the Pure Hub of Perfect Skin.<br />
+            Nourish Your Skin, Embrace the Pure Hub.<br />
+            The Essence of Glowing Skin.
+          </p>
+          <Link
+            to="/blog"
+            className="pure-hub-hero-button btn-slide"
           >
-            <div className="pure-hub-hero-screen-inner" />
-            <div className="pure-hub-hero-screen-base" />
-          </motion.div>
-
-          <motion.div
-            className="pure-hub-hero-product"
-            initial={{ opacity: 0, y: 60, rotate: 0 }}
-            animate={{ opacity: 1, y: 0, rotate: -22 }}
-            transition={{ duration: 1.2, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            whileHover={{ rotate: -18, scale: 1.03, transition: { duration: 0.4 } }}
-          >
-            <div className="pure-hub-hero-product-glow" />
-            <img
-              src={heroProduct}
-              alt="Pure Hub Matcha Face Wash"
-              className="pure-hub-hero-product-img"
-            />
-            <div className="pure-hub-hero-product-shadow" />
-          </motion.div>
-        </div>
+            <div className="btn-slide-inner">
+              <span className="btn-text">Learn More</span>
+              <span className="btn-slide-text-alt" aria-hidden="true">Learn More</span>
+            </div>
+          </Link>
+        </motion.div>
       </div>
     </section>
   )
