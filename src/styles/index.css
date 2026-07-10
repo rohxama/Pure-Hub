@@ -2029,7 +2029,7 @@ select {
 }
 
 .pure-hub-about-content {
-  padding: 1rem 3rem 1.5rem;
+  padding: 3rem 3rem 1.5rem;
 }
 
 .pure-hub-about-title {
@@ -2049,7 +2049,7 @@ select {
 .pure-hub-about-row {
   display: grid;
   grid-template-columns: minmax(12rem, 1fr) minmax(20rem, 32rem);
-  gap: 4rem;
+  gap: 3rem;
   margin-top: 4rem;
 }
 
@@ -2087,8 +2087,7 @@ select {
 
 .pure-hub-about-image {
   width: 100%;
-  flex: 1;
-  min-height: 0;
+  height: 350px ;
   object-fit: cover;
 }
 
