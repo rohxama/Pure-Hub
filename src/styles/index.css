@@ -1429,17 +1429,13 @@ select {
   position: relative;
   display: flex;
   min-height: calc(100vh - 10.5rem);
-  align-items: center;
-}
-
-.pure-hub-hero-content {
-  position: relative;
-  z-index: 2;
-  flex: 1;
-  max-width: 55%;
+  flex-direction: column;
 }
 
 .pure-hub-hero-type {
+  display: flex;
+  flex: 1;
+  align-items: center;
   padding: 1.25rem 0 2rem;
 }
 
@@ -1516,23 +1512,15 @@ select {
   font-weight: 500;
 }
 
-/* Hero Product */
-.pure-hub-hero-product {
+.pure-hub-hero-product-img {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) rotate(-22deg);
-  width: 28rem;
-  max-width: 45vw;
-  z-index: 3;
-  cursor: pointer;
-  transform-origin: center center;
-}
-
-.pure-hub-hero-product-img {
-  width: 100%;
+  transform: translate(-50%, -50%);
+  width: clamp(20rem, 30vw, 30rem);
   height: auto;
-  display: block;
+  z-index: 2;
+  pointer-events: none;
 }
 
 /* Pure Hub features */
@@ -2893,15 +2881,6 @@ select {
     min-height: calc(100vh - 8.75rem);
   }
 
-  .pure-hub-hero-content {
-    max-width: 60%;
-  }
-
-  .pure-hub-hero-product {
-    width: 22rem;
-    max-width: 40vw;
-  }
-
   .pure-hub-hero-type {
     align-items: center;
     padding-bottom: 1rem;
@@ -3129,24 +3108,6 @@ select {
     padding-top: 5.75rem;
   }
 
-  .pure-hub-hero-inner {
-    flex-direction: column;
-  }
-
-  .pure-hub-hero-content {
-    max-width: 100%;
-  }
-
-  .pure-hub-hero-product {
-    position: relative;
-    top: auto;
-    left: auto;
-    transform: rotate(-22deg);
-    width: 14rem;
-    max-width: 60vw;
-    margin: 1.5rem auto;
-  }
-
   .pure-hub-hero-line {
     white-space: normal;
   }
@@ -3156,10 +3117,6 @@ select {
   .pure-hub-hero-line-three {
     font-size: clamp(3rem, 17vw, 5.75rem);
     text-align: left;
-  }
-
-  .pure-hub-hero-bottom {
-    justify-content: space-between;
   }
 
   .pure-hub-hero-copy {

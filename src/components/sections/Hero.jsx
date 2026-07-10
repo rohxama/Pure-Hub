@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import heroProduct from '../../assets/Hero-section.png'
+import heroSectionImg from '../../assets/Hero-section.png'
 
 export default function Hero() {
   return (
@@ -30,20 +30,6 @@ export default function Hero() {
         </motion.div>
 
         <motion.div
-          className="pure-hub-hero-product"
-          initial={{ opacity: 0, y: 60, rotate: 0 }}
-          animate={{ opacity: 1, y: 0, rotate: -22 }}
-          transition={{ duration: 1.2, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          whileHover={{ rotate: -18, scale: 1.03, transition: { duration: 0.4 } }}
-        >
-          <img
-            src={heroProduct}
-            alt="Pure Hub Matcha Face Wash"
-            className="pure-hub-hero-product-img"
-          />
-        </motion.div>
-
-        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.55 }}
@@ -65,6 +51,15 @@ export default function Hero() {
           </Link>
         </motion.div>
       </div>
+
+      <motion.img
+        src={heroSectionImg}
+        alt="Pure Hub Product"
+        className="pure-hub-hero-product-img"
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+      />
     </section>
   )
 }
