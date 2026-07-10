@@ -17,6 +17,7 @@ const experienceSlides = [
     description: 'Soft and nourishing - eucalyptus and honey',
     reviews: '(5,662) Reviews',
     price: '$200.87',
+    slug: 'barrier-restore',
     leftImg: maskExpImg,
     rightImg: productExp1Img,
   },
@@ -26,6 +27,7 @@ const experienceSlides = [
     description: 'Silky hydration - oat extract and almond',
     reviews: '(4,918) Reviews',
     price: '$180.00',
+    slug: 'body-lotion',
     leftImg: hairOilImg,
     rightImg: productExp2Img,
   },
@@ -35,6 +37,7 @@ const experienceSlides = [
     description: 'Gentle cleanse - aloe and green tea',
     reviews: '(3,420) Reviews',
     price: '$145.00',
+    slug: 'face-wash',
     leftImg: perfumeImg,
     rightImg: productExp3Img,
   },
@@ -189,7 +192,7 @@ export default function AboutSection() {
 
             <div className="pure-hub-showcase-bottom">
               <strong>{activeExperience.price}</strong>
-              <Link to="/products" className="pure-hub-outline-button btn-slide">
+              <Link to={`/product/${activeExperience.slug}`} className="pure-hub-outline-button btn-slide">
                 <div className="btn-slide-inner"><span className="btn-text">Buy Now <ArrowUpRight className="pure-hub-buy-icon" /></span><span className="btn-slide-text-alt" aria-hidden="true">Buy Now <ArrowUpRight className="pure-hub-buy-icon" /></span></div>
               </Link>
             </div>
