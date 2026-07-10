@@ -9,6 +9,9 @@ import productExp3Img from '../../assets/product-exp3.png'
 import maskExpImg from '../../assets/mask-exp.png'
 import hairOilImg from '../../assets/hair-oil.png'
 import perfumeImg from '../../assets/perfume.png'
+import product4Img from '../../assets/product4.png'
+import product5Img from '../../assets/product5.png'
+import product6Img from '../../assets/product6.png'
 import client1Img from '../../assets/client1.jpg'
 import client2Img from '../../assets/client2.jpg'
 import client3Img from '../../assets/client3.jpg'
@@ -270,7 +273,7 @@ export default function AboutSection() {
                   <div className="btn-slide-inner"><span className="btn-text">$00 <ArrowUpRight /></span><span className="btn-slide-text-alt" aria-hidden="true">$00 <ArrowUpRight /></span></div>
                 </Link>
               </div>
-              <img src={[productExp1Img, productExp2Img, productExp3Img][index % 3]} alt="" className="pure-hub-catalogue-image" />
+              <img src={[productExp1Img, productExp2Img, productExp3Img, product4Img, product5Img, product6Img][index]} alt="" className="pure-hub-catalogue-image" />
             </motion.article>
           ))}
         </div>
