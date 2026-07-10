@@ -159,7 +159,7 @@ export default function AboutSection() {
         <h2 className="pure-hub-experience-title">Soft, Nourishing And Tender</h2>
 
         <div className="pure-hub-experience-grid">
-          <img src={activeExperience.leftImg} alt="" className={`pure-hub-experience-image pure-hub-slide-tone-${experienceIndex}`} />
+          <img src={activeExperience.leftImg} alt="" className={`pure-hub-experience-image pure-hub-slide-tone-${experienceIndex} pure-hub-slide-left-${experienceIndex}`} />
           <article className="pure-hub-product-showcase">
             <motion.div
               key={activeExperience.title}
@@ -183,7 +183,7 @@ export default function AboutSection() {
 
             <div className="pure-hub-showcase-body">
               <button type="button" onClick={() => goExperience(-1)} aria-label="Previous product"><ArrowLeft /></button>
-              <img src={activeExperience.rightImg} alt="" className={`pure-hub-showcase-image pure-hub-slide-tone-${experienceIndex}`} />
+              <img src={activeExperience.rightImg} alt="" className={`pure-hub-showcase-image pure-hub-slide-tone-${experienceIndex} pure-hub-slide-right-${experienceIndex}`} />
               <button type="button" onClick={() => goExperience(1)} aria-label="Next product"><ArrowRight /></button>
             </div>
 
