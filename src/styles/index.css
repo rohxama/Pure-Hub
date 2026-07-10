@@ -2087,8 +2087,8 @@ select {
 
 .pure-hub-about-image {
   width: 100%;
-  flex: 1;
-  min-height: 0;
+  height: clamp(18rem, 40vh, 30rem);
+  flex-shrink: 0;
   object-fit: cover;
 }
 
