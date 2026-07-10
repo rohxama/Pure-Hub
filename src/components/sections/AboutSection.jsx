@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ArrowLeft, ArrowRight, ArrowUpRight, Camera, Mail, MessageCircle, Phone, Star } from 'lucide-react'
 import abtSecImg from '../../assets/abt-img.png'
+import productExpImg from '../../assets/product-exp1.png'
+import maskExpImg from '../../assets/mask-exp.png'
 
 const experienceSlides = [
   {
@@ -147,7 +149,7 @@ export default function AboutSection() {
         <h2 className="pure-hub-experience-title">Soft, Nourishing And Tender</h2>
 
         <div className="pure-hub-experience-grid">
-          <EmptyImage className={`pure-hub-experience-image pure-hub-slide-tone-${experienceIndex}`} />
+          <img src={maskExpImg} alt="" className={`pure-hub-experience-image pure-hub-slide-tone-${experienceIndex}`} />
           <article className="pure-hub-product-showcase">
             <motion.div
               key={activeExperience.title}
@@ -171,7 +173,7 @@ export default function AboutSection() {
 
             <div className="pure-hub-showcase-body">
               <button type="button" onClick={() => goExperience(-1)} aria-label="Previous product"><ArrowLeft /></button>
-              <EmptyImage className={`pure-hub-showcase-image pure-hub-slide-tone-${experienceIndex}`} />
+              <img src={productExpImg} alt="" className={`pure-hub-showcase-image pure-hub-slide-tone-${experienceIndex}`} />
               <button type="button" onClick={() => goExperience(1)} aria-label="Next product"><ArrowRight /></button>
             </div>
 
