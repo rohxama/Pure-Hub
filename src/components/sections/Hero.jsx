@@ -40,15 +40,26 @@ export default function Hero() {
             Nourish Your Skin, Embrace the Pure Hub.<br />
             The Essence of Glowing Skin.
           </p>
-          <Link
-            to="/blog"
-            className="pure-hub-hero-button btn-slide"
-          >
-            <div className="btn-slide-inner">
-              <span className="btn-text">Learn More</span>
-              <span className="btn-slide-text-alt" aria-hidden="true">Learn More</span>
-            </div>
-          </Link>
+          <div className="pure-hub-hero-actions">
+            <Link
+              to="/products"
+              className="pure-hub-hero-button pure-hub-hero-button-primary btn-slide"
+            >
+              <div className="btn-slide-inner">
+                <span className="btn-text">Shop Now</span>
+                <span className="btn-slide-text-alt" aria-hidden="true">Shop Now</span>
+              </div>
+            </Link>
+            <Link
+              to="/about"
+              className="pure-hub-hero-button pure-hub-hero-button-secondary btn-slide"
+            >
+              <div className="btn-slide-inner">
+                <span className="btn-text">Learn More</span>
+                <span className="btn-slide-text-alt" aria-hidden="true">Learn More</span>
+              </div>
+            </Link>
+          </div>
         </motion.div>
       </div>
 
