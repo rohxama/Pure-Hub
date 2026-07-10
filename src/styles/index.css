@@ -2460,8 +2460,10 @@ select {
 }
 
 .pure-hub-catalogue-image {
+  width: 100%;
   aspect-ratio: 0.82;
   border-radius: 0.85rem;
+  object-fit: cover;
   background: #d7d7d7;
 }
 

@@ -270,7 +270,7 @@ export default function AboutSection() {
                   <div className="btn-slide-inner"><span className="btn-text">$00 <ArrowUpRight /></span><span className="btn-slide-text-alt" aria-hidden="true">$00 <ArrowUpRight /></span></div>
                 </Link>
               </div>
-              <EmptyImage className="pure-hub-catalogue-image" />
+              <img src={[productExp1Img, productExp2Img, productExp3Img][index % 3]} alt="" className="pure-hub-catalogue-image" />
             </motion.article>
           ))}
         </div>
