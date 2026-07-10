@@ -52,14 +52,15 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      <motion.img
-        src={heroSectionImg}
-        alt="Pure Hub Product"
-        className="pure-hub-hero-product-img"
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-      />
+      <div className="pure-hub-hero-product-img">
+        <motion.img
+          src={heroSectionImg}
+          alt="Pure Hub Product"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+        />
+      </div>
     </section>
   )
 }
