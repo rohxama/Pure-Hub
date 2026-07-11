@@ -17,6 +17,8 @@ import product9Img from '../../assets/product9.png'
 import product10Img from '../../assets/product10.png'
 import product11Img from '../../assets/product11.png'
 import product12Img from '../../assets/product12.png'
+import blogImg1 from '../../assets/blog-img1.jpg'
+import blogImg2 from '../../assets/blog2.jpg'
 import client1Img from '../../assets/client1.jpg'
 import client2Img from '../../assets/client2.jpg'
 import client3Img from '../../assets/client3.jpg'
@@ -75,11 +77,11 @@ const catalogueProducts = [
 ]
 
 const blogTiles = [
-  { title: 'Know More About Glassy Skin', size: 'large', tone: 'dark' },
-  { title: 'How To Use Our Products', tone: 'dark' },
-  { title: 'Product Name', price: '$00', tone: 'light' },
-  { title: 'Product Name', price: '$00', tone: 'light' },
-  { title: 'Get The Perfect Glow For The Summer', tone: 'dark' },
+  { title: 'Know More About Glassy Skin', size: 'large', tone: 'dark', img: blogImg1 },
+  { title: 'How To Use Our Products', tone: 'dark', img: productExp2Img },
+  { title: 'Product Name', price: '$00', tone: 'light', img: product6Img },
+  { title: 'Product Name', price: '$00', tone: 'light', img: product7Img },
+  { title: 'Get The Perfect Glow For The Summer', tone: 'dark', img: blogImg2 },
 ]
 
 const footerLinks = ['Home', 'Products', 'About', 'Blog', 'Contact']
@@ -320,7 +322,7 @@ export default function AboutSection() {
           {blogTiles.map((tile, index) => (
             <article className={`pure-hub-blog-card ${tile.size === 'large' ? 'pure-hub-blog-large' : ''} ${tile.tone === 'light' ? 'pure-hub-blog-light' : ''}`} key={`${tile.title}-${index}`}>
               <Link to="/blog" className="pure-hub-blog-image-link" aria-label={`Read ${tile.title}`}>
-                <EmptyImage className="pure-hub-blog-image" />
+                <img src={tile.img} alt="" className="pure-hub-blog-image" />
               </Link>
               <h3>{tile.title}</h3>
               {tile.price ? (
