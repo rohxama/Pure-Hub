@@ -143,9 +143,11 @@ export default function AboutSection() {
 
   const goCatalogue = (direction) => {
     setCatalogueDir(direction)
-    setCatalogueIndex((current) => (
-      (current + direction + catalogueProducts.length) % catalogueProducts.length
-    ))
+    setCatalogueIndex((current) => {
+      const next = current + direction * 4
+      const len = catalogueProducts.length
+      return ((next % len) + len) % len
+    })
   }
 
   return (
@@ -192,8 +194,8 @@ export default function AboutSection() {
               className={`pure-hub-experience-image pure-hub-slide-tone-${experienceIndex} pure-hub-slide-left-${experienceIndex}`}
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 20 }}
-              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
             />
           </AnimatePresence>
           <article className="pure-hub-product-showcase">
@@ -227,8 +229,8 @@ export default function AboutSection() {
                   className={`pure-hub-showcase-image pure-hub-slide-tone-${experienceIndex} pure-hub-slide-right-${experienceIndex}`}
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -20 }}
-                  transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
                 />
               </AnimatePresence>
               <button type="button" onClick={() => goExperience(1)} aria-label="Next product"><ArrowRight /></button>
