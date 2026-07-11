@@ -78,7 +78,7 @@ const catalogueProducts = [
 
 const blogTiles = [
   { title: 'Know More About Glassy Skin', size: 'large', tone: 'dark', img: blogImg1 },
-  { title: 'How To Use Our Products', tone: 'dark', img: productExp3Img, objectPosition: 'top', objectFit: 'contain' },
+  { title: 'How To Use Our Products', tone: 'dark', img: productExp3Img, objectPosition: 'top' },
   { title: 'Product Name', price: '$00', tone: 'light', img: product6Img },
   { title: 'Product Name', price: '$00', tone: 'light', img: product7Img },
   { title: 'Get The Perfect Glow For The Summer', tone: 'dark', img: blogImg2 },
