@@ -19,6 +19,7 @@ import product11Img from '../../assets/product11.png'
 import product12Img from '../../assets/product12.png'
 import blogImg1 from '../../assets/blog-img1.jpg'
 import blogImg2 from '../../assets/blog2.jpg'
+import featureSecMainImg from '../../assets/feature-sec-main-img.png'
 import client1Img from '../../assets/client1.jpg'
 import client2Img from '../../assets/client2.jpg'
 import client3Img from '../../assets/client3.jpg'
@@ -78,7 +79,7 @@ const catalogueProducts = [
 
 const blogTiles = [
   { title: 'Know More About Glassy Skin', size: 'large', tone: 'dark', img: blogImg1 },
-  { title: 'How To Use Our Products', tone: 'dark', img: productExp3Img, objectPosition: 'top' },
+  { title: 'How To Use Our Products', tone: 'dark', img: featureSecMainImg, objectPosition: 'top' },
   { title: 'Product Name', price: '$00', tone: 'light', img: product6Img },
   { title: 'Product Name', price: '$00', tone: 'light', img: product7Img },
   { title: 'Get The Perfect Glow For The Summer', tone: 'dark', img: blogImg2 },
