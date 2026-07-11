@@ -2598,7 +2598,7 @@ select {
 }
 
 .pure-hub-contact-content h2 {
-  font-size: clamp(4rem, 6.8vw, 7.6rem);
+  font-size: clamp(2.5rem, 5vw, 5rem);
   font-weight: 300;
   line-height: 0.94;
 }

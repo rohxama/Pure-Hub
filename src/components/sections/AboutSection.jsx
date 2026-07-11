@@ -344,13 +344,13 @@ export default function AboutSection() {
         <div
           className="pure-hub-contact-card"
           style={{
-            backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${footerImg})`,
+            backgroundImage: `url(${footerImg})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
         >
           <div className="pure-hub-contact-content">
-            <h2>Get In Touch<br />With Us</h2>
+            <h2>Get In Touch With Us</h2>
             <p>Know more about how we work and contact us for a newsletter or collaboration</p>
             <Link to="/contact" className="pure-hub-light-button btn-slide"><div className="btn-slide-inner"><span className="btn-text">Contact Us</span><span className="btn-slide-text-alt" aria-hidden="true">Contact Us</span></div></Link>
           </div>
