@@ -9,9 +9,14 @@ import productExp3Img from '../../assets/product-exp3.png'
 import maskExpImg from '../../assets/mask-exp.png'
 import hairOilImg from '../../assets/hair-oil.png'
 import perfumeImg from '../../assets/perfume.png'
-import product4Img from '../../assets/product4.png'
+import product4Img from '../../assets/product4 (2).png'
 import product5Img from '../../assets/product5.png'
 import product6Img from '../../assets/product6.png'
+import product7Img from '../../assets/product7.png'
+import product9Img from '../../assets/product9.png'
+import product10Img from '../../assets/product10.png'
+import product11Img from '../../assets/product11.png'
+import product12Img from '../../assets/product12.png'
 import client1Img from '../../assets/client1.jpg'
 import client2Img from '../../assets/client2.jpg'
 import client3Img from '../../assets/client3.jpg'
@@ -62,6 +67,11 @@ const catalogueProducts = [
   'Sun Block',
   'Night Cream',
   'Glow Serum',
+  'Hair Oil',
+  'Perfume',
+  'Lip Balm',
+  'Eye Cream',
+  'Face Mask',
 ]
 
 const blogTiles = [
@@ -273,7 +283,7 @@ export default function AboutSection() {
                   <div className="btn-slide-inner"><span className="btn-text">$00 <ArrowUpRight /></span><span className="btn-slide-text-alt" aria-hidden="true">$00 <ArrowUpRight /></span></div>
                 </Link>
               </div>
-              <img src={[productExp1Img, productExp2Img, productExp3Img, product4Img, product5Img, product6Img][(catalogueIndex + index) % catalogueProducts.length]} alt="" className="pure-hub-catalogue-image" />
+              <img src={[productExp1Img, productExp2Img, productExp3Img, product4Img, product5Img, product6Img, product7Img, product9Img, product10Img, product11Img, product12Img][(catalogueIndex + index) % catalogueProducts.length]} alt="" className="pure-hub-catalogue-image" />
             </motion.article>
           ))}
         </div>
