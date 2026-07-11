@@ -21,6 +21,7 @@ import blogImg1 from '../../assets/blog-img1.jpg'
 import blogImg2 from '../../assets/blog2.jpg'
 import featureSecMainImg from '../../assets/feature-sec-main-img.png'
 import footerImg from '../../assets/footer-img.jpg'
+import logo from '../../assets/logo.png'
 import client1Img from '../../assets/client1.jpg'
 import client2Img from '../../assets/client2.jpg'
 import client3Img from '../../assets/client3.jpg'
@@ -365,7 +366,7 @@ export default function AboutSection() {
         </div>
 
         <footer className="pure-hub-home-footer">
-          <div className="pure-hub-footer-mark" aria-hidden="true" />
+          <img src={logo} alt="Pure Hub" className="pure-hub-footer-logo" />
           <nav aria-label="Footer navigation">
             {footerLinks.map((link) => (
               <Link key={link} to={link === 'Home' ? '/' : `/${link.toLowerCase().replaceAll(' ', '-')}`}>
