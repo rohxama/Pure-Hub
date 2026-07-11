@@ -20,6 +20,7 @@ import product12Img from '../../assets/product12.png'
 import blogImg1 from '../../assets/blog-img1.jpg'
 import blogImg2 from '../../assets/blog2.jpg'
 import featureSecMainImg from '../../assets/feature-sec-main-img.png'
+import footerImg from '../../assets/footer-img.jpg'
 import client1Img from '../../assets/client1.jpg'
 import client2Img from '../../assets/client2.jpg'
 import client3Img from '../../assets/client3.jpg'
@@ -357,7 +358,14 @@ export default function AboutSection() {
           <p className="pure-hub-contact-details">323-967-098<br />duasajjad.info@gmail.com</p>
         </div>
 
-        <footer className="pure-hub-home-footer">
+        <footer
+          className="pure-hub-home-footer"
+          style={{
+            backgroundImage: `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url(${footerImg})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        >
           <div className="pure-hub-footer-mark" aria-hidden="true" />
           <nav aria-label="Footer navigation">
             {footerLinks.map((link) => (
