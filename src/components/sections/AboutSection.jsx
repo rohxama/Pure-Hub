@@ -349,7 +349,6 @@ export default function AboutSection() {
             backgroundPosition: 'center',
           }}
         >
-          <EmptyImage className="pure-hub-contact-image" />
           <div className="pure-hub-contact-content">
             <h2>Get In Touch<br />With Us</h2>
             <p>Know more about how we work and contact us for a newsletter or collaboration</p>

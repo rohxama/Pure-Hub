@@ -2581,7 +2581,6 @@ select {
   overflow: hidden;
   min-height: clamp(24rem, 40vw, 42rem);
   border-radius: 1rem;
-  background: #d0bfad;
   color: #ffffff;
   padding: clamp(2rem, 4vw, 4rem);
 }
