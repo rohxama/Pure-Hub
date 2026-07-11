@@ -341,7 +341,14 @@ export default function AboutSection() {
       </section>
 
       <section className="pure-hub-contact-wrap">
-        <div className="pure-hub-contact-card">
+        <div
+          className="pure-hub-contact-card"
+          style={{
+            backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${footerImg})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        >
           <EmptyImage className="pure-hub-contact-image" />
           <div className="pure-hub-contact-content">
             <h2>Get In Touch<br />With Us</h2>
@@ -358,14 +365,7 @@ export default function AboutSection() {
           <p className="pure-hub-contact-details">323-967-098<br />duasajjad.info@gmail.com</p>
         </div>
 
-        <footer
-          className="pure-hub-home-footer"
-          style={{
-            backgroundImage: `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url(${footerImg})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-        >
+        <footer className="pure-hub-home-footer">
           <div className="pure-hub-footer-mark" aria-hidden="true" />
           <nav aria-label="Footer navigation">
             {footerLinks.map((link) => (
