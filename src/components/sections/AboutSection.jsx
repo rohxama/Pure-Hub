@@ -78,7 +78,7 @@ const catalogueProducts = [
 
 const blogTiles = [
   { title: 'Know More About Glassy Skin', size: 'large', tone: 'dark', img: blogImg1 },
-  { title: 'How To Use Our Products', tone: 'dark', img: productExp2Img, objectPosition: 'top' },
+  { title: 'How To Use Our Products', tone: 'dark', img: productExp3Img, objectPosition: 'top', objectFit: 'contain' },
   { title: 'Product Name', price: '$00', tone: 'light', img: product6Img },
   { title: 'Product Name', price: '$00', tone: 'light', img: product7Img },
   { title: 'Get The Perfect Glow For The Summer', tone: 'dark', img: blogImg2 },
@@ -322,7 +322,7 @@ export default function AboutSection() {
           {blogTiles.map((tile, index) => (
             <article className={`pure-hub-blog-card ${tile.size === 'large' ? 'pure-hub-blog-large' : ''} ${tile.tone === 'light' ? 'pure-hub-blog-light' : ''}`} key={`${tile.title}-${index}`}>
               <Link to="/blog" className="pure-hub-blog-image-link" aria-label={`Read ${tile.title}`}>
-                <img src={tile.img} alt="" className="pure-hub-blog-image" style={{ objectPosition: tile.objectPosition || 'center' }} />
+                <img src={tile.img} alt="" className="pure-hub-blog-image" style={{ objectPosition: tile.objectPosition || 'center', objectFit: tile.objectFit || 'cover' }} />
               </Link>
               <h3>{tile.title}</h3>
               {tile.price ? (
