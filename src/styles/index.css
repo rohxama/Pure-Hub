@@ -2579,7 +2579,7 @@ select {
 .pure-hub-contact-card {
   position: relative;
   overflow: hidden;
-  min-height: clamp(18rem, 28vw, 28rem);
+  min-height: clamp(18rem, 40vw, 42rem);
   border-radius: 1rem;
   color: #ffffff;
   padding: clamp(2rem, 4vw, 4rem);
@@ -2662,16 +2662,25 @@ select {
   grid-template-columns: 9rem 1fr 9rem;
   align-items: center;
   gap: 2rem;
-  height: 20rem;
+  margin-top: 4rem;
   border-radius: 1rem;
   background: #000000;
   color: #ffffff;
   padding: 2rem 3rem;
 }
 
+.pure-hub-footer-mark {
+  width: 3.8rem;
+  height: 3.8rem;
+  border: 2px solid #ffffff;
+  border-radius: 1rem;
+}
+
 .pure-hub-footer-logo {
-  width: 6rem;
-  height: auto;
+  width: 3.8rem;
+  height: 3.8rem;
+  object-fit: contain;
+  border-radius: 1rem;
   filter: invert(1);
 }
 
