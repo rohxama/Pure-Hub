@@ -4,6 +4,61 @@ import { motion } from 'framer-motion'
 import { ArrowLeft, ArrowRight, CheckCircle, ChevronRight, Heart, Minus, Plus, Share2, Star } from 'lucide-react'
 import { products } from '@/data/products'
 import { useCart } from '@/context/CartContext'
+import productExp1Img from '@/assets/product-exp1.png'
+import productExp2Img from '@/assets/product-exp2.png'
+import productExp3Img from '@/assets/product-exp3.png'
+import product4Img from '@/assets/product4 (2).png'
+import product5Img from '@/assets/product5.png'
+import product6Img from '@/assets/product6.png'
+import product7Img from '@/assets/product7.png'
+import product9Img from '@/assets/product9.png'
+import product10Img from '@/assets/product10.png'
+import product11Img from '@/assets/product11.png'
+import product12Img from '@/assets/product12.png'
+import featureSecMainImg from '@/assets/feature-sec-main-img.png'
+import feature1Img from '@/assets/feature1-img.jpg'
+import feature2Img from '@/assets/feature2-img.jpg'
+import feature4Img from '@/assets/feature4-img.jpg'
+import hairOilImg from '@/assets/hair-oil.png'
+import perfumeImg from '@/assets/perfume.png'
+import client1Img from '@/assets/client1.jpg'
+import client2Img from '@/assets/client2.jpg'
+import client3Img from '@/assets/client3.jpg'
+import client4Img from '@/assets/client4.jpg'
+import client5Img from '@/assets/client5.jpg'
+import client6Img from '@/assets/client6.jpg'
+import client7Img from '@/assets/client7.jpg'
+import client8Img from '@/assets/client8.jpg'
+import client9Img from '@/assets/client9.jpg'
+import { PageFooter, Newsletter } from '@/components/sections/PageCommon'
+
+const productImageMap = {
+  'matcha-mask': productExp1Img,
+  'inner-peace-hair-mist': productExp2Img,
+  'cashmere-perfume': productExp3Img,
+  'anti-ageing-serum': product4Img,
+  'odemme-mist': product5Img,
+  'mastana-beauty-cream': product6Img,
+  'blue-orchid-perfume': product7Img,
+  'hair-oil-serum': product9Img,
+  'spark-oil': product10Img,
+  'matcha-face-wash': product11Img,
+  'anti-ageing-cream': product12Img,
+}
+
+const secondaryImages = {
+  'matcha-mask': [feature1Img, featureSecMainImg],
+  'inner-peace-hair-mist': [hairOilImg, featureSecMainImg],
+  'cashmere-perfume': [perfumeImg, featureSecMainImg],
+  'anti-ageing-serum': [feature2Img, featureSecMainImg],
+  'odemme-mist': [feature1Img, featureSecMainImg],
+  'mastana-beauty-cream': [feature4Img, featureSecMainImg],
+  'blue-orchid-perfume': [perfumeImg, featureSecMainImg],
+  'hair-oil-serum': [hairOilImg, featureSecMainImg],
+  'spark-oil': [feature2Img, featureSecMainImg],
+  'matcha-face-wash': [feature1Img, featureSecMainImg],
+  'anti-ageing-cream': [feature4Img, featureSecMainImg],
+}
 
 function EmptyProductImage({ className = '' }) {
   return (
@@ -47,15 +102,15 @@ export default function ProductDetail() {
 
   const tabCopy = {
     'how-to-use': [
-      'We always recommend that you speak to your skincare specialist before you begin any new routine. Everyone is different, and your daily care should support your unique skin needs.',
+      `We always recommend that you speak to your skincare specialist before you begin any new routine. Everyone is different, and your daily care should support your unique skin needs.`,
       'Apply a small amount in the morning and evening after cleansing. Use consistently for best results, and avoid applying to irritated skin.',
       'Pair with a balanced routine and sunscreen during the day. This product is designed to support healthy-looking skin as part of a complete ritual.',
     ],
     benefit: [
-      'Helps soften, nourish, and comfort the skin while supporting a smoother daily routine. The lightweight feel makes it easy to layer with other skincare products.',
+      product.description,
     ],
     ingredients: [
-      'Built around gentle skincare essentials and botanical-inspired actives. Add your full ingredient list here when the product content is finalized.',
+      `Formulated with carefully selected ingredients: ${product.features?.join(', ') || 'natural botanical extracts and active compounds.'}`,
     ],
     'return-policy': [
       'Products can be returned within 30 days when eligible. Keep the original packaging and contact support before sending anything back.',
@@ -73,6 +128,7 @@ export default function ProductDetail() {
   }
 
   return (
+    <>
     <section className="pure-hub-detail-page">
       <div className="pure-hub-detail-shell">
         <nav className="pure-hub-detail-breadcrumb" aria-label="Breadcrumb">
@@ -91,11 +147,15 @@ export default function ProductDetail() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.28 }}
             >
-              <EmptyProductImage className="pure-hub-detail-main-image" />
+              <img
+                src={selectedImage === 0 ? productImageMap[product.slug] : (secondaryImages[product.slug]?.[selectedImage - 1] || productImageMap[product.slug])}
+                alt={product.name}
+                className="pure-hub-detail-main-image pure-hub-main-real-image"
+              />
             </motion.div>
 
             <div className="pure-hub-detail-thumbs">
-              {Array.from({ length: galleryCount }).map((_, index) => (
+              {[productImageMap[product.slug], ...(secondaryImages[product.slug] || [])].slice(0, galleryCount).map((img, index) => (
                 <button
                   key={index}
                   type="button"
@@ -103,7 +163,7 @@ export default function ProductDetail() {
                   className={index === selectedImage ? 'pure-hub-thumb-active' : ''}
                   aria-label={`View product image ${index + 1}`}
                 >
-                  <EmptyProductImage />
+                  <img src={img} alt="" className="pure-hub-thumb-image" />
                 </button>
               ))}
             </div>
@@ -225,36 +285,6 @@ export default function ProductDetail() {
         </div>
       </div>
 
-      <section className="ph-detail-panel">
-        <div className="ph-detail-panel-tabs">
-          {detailPanelTabs.map((item) => (
-            <button
-              key={item.id}
-              type="button"
-              onClick={() => setActiveTab(item.id)}
-              className={`${activeTab === item.id ? 'ph-active ' : ''}btn-slide`}
-            >
-              <div className="btn-slide-inner"><span className="btn-text">{item.label}</span><span className="btn-slide-text-alt" aria-hidden="true">{item.label}</span></div>
-            </button>
-          ))}
-        </div>
-        <div className="ph-detail-panel-body">
-          <div>
-            <p>{tabCopy[activeTab][0]}</p>
-            {[
-              'Deeply hydrates and nourishes',
-              'Helps brighten and even skin tone',
-              'Reduces the appearance of fine lines',
-              'Lightweight and non-greasy formula',
-              'Dermatologist-tested and safe',
-            ].map((item) => (
-              <span key={item}><CheckCircle /> {item}</span>
-            ))}
-          </div>
-          <EmptyProductImage className="ph-detail-panel-image" />
-        </div>
-      </section>
-
       <section className="ph-review-section">
         <div className="ph-review-summary">
           <div>
@@ -275,18 +305,18 @@ export default function ProductDetail() {
         </div>
 
         {[
-          ['Kristin Watson', 'Absolutely love this product!', 'This serum has made my skin feel so smooth and hydrated.'],
-          ['Jenny Wilson', 'Perfect for my skincare routine!', 'Lightweight, non-greasy, and works great under makeup.'],
-          ['Darlene Robertson', 'Great results', 'My skin looks brighter and healthier after a few weeks.'],
-        ].map(([name, title, copy], index) => (
+          ['Kristin Watson', 'Absolutely love this product!', 'This serum has made my skin feel so smooth and hydrated.', client1Img],
+          ['Jenny Wilson', 'Perfect for my skincare routine!', 'Lightweight, non-greasy, and works great under makeup.', client3Img],
+          ['Darlene Robertson', 'Great results', 'My skin looks brighter and healthier after a few weeks.', client5Img],
+        ].map(([name, title, copy, avatarImg], index) => (
           <article className="ph-review-row" key={name}>
-            <EmptyProductImage />
+            <img src={avatarImg} alt={name} className="ph-review-avatar" />
             <div>
               <h3>{name}</h3>
               <p>Verified Buyer</p>
             </div>
             <div>
-              <span>{[1, 2, 3, 4, 5].map((star) => <Star key={star} />)} {index === 2 ? '4.0' : '5.0'}</span>
+              <span className="ph-review-stars">{Array.from({ length: index === 2 ? 4 : 5 }).map((_, i) => <Star key={i} />)} {(index === 2 ? '4.0' : '5.0')}</span>
               <h4>{title}</h4>
               <p>{copy}</p>
             </div>
@@ -314,7 +344,7 @@ export default function ProductDetail() {
               className="pure-hub-related-card"
             >
               <Link to={`/product/${item.slug}`}>
-                <EmptyProductImage className="pure-hub-related-image" />
+                <img src={productImageMap[item.slug] || productImageMap['matcha-mask']} alt={item.name} className="pure-hub-related-image pure-hub-related-real-img" />
                 <div className="pure-hub-related-card-body">
                   <h3>{item.name}</h3>
                   <p>
@@ -332,12 +362,17 @@ export default function ProductDetail() {
           ))}
         </div>
 
-          <div className="pure-hub-more-products">
-          <Link to="/products" className="btn-slide">
-            <div className="btn-slide-inner"><span className="btn-text">More products</span><span className="btn-slide-text-alt" aria-hidden="true">More products</span></div> <ArrowRight />
-          </Link>
-        </div>
       </section>
+
+      <div className="pure-hub-more-products">
+        <Link to="/products" className="pure-hub-more-btn">
+          More products <ArrowRight />
+        </Link>
+      </div>
     </section>
+
+    <Newsletter />
+    <PageFooter active="Products" />
+    </>
   )
 }
