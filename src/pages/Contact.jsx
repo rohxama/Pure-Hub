@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Clock, Mail, MapPin, Phone, Plus } from 'lucide-react'
 import { Newsletter, PageFooter, PageHero } from '@/components/sections/PageCommon'
+import hero2Img from '@/assets/hero2.png'
 
 const contactItems = [
   ['Email Us', 'info@purehubskincare.com', Mail],
@@ -32,6 +33,7 @@ export default function Contact() {
         titleItalic="Contact"
         titleRest="Us"
         copy="We'd love to hear from you. Reach out for any questions, support, or collaborations."
+        backgroundImage={hero2Img}
       />
 
       <section className="ph-contact-intro">
