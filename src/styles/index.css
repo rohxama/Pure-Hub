@@ -2581,7 +2581,7 @@ select {
 .pure-hub-contact-card {
   position: relative;
   overflow: hidden;
-  min-height: clamp(18rem, 40vw, 42rem);
+  min-height: clamp(17rem, 40vw, 42rem);
   border-radius: 1rem;
   color: #ffffff;
   padding: clamp(2rem, 4vw, 4rem);
@@ -2664,11 +2664,11 @@ select {
   grid-template-columns: 9rem 1fr 9rem;
   align-items: center;
   gap: 2rem;
-  margin-top: 4rem;
+  margin-top: 3rem;
   border-radius: 1rem;
   background: #000000;
   color: #ffffff;
-  padding: 2rem 3rem;
+  padding: 1rem 2rem;
 }
 
 .pure-hub-footer-mark {

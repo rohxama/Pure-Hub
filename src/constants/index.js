@@ -39,20 +39,20 @@ export const CONTACT_INFO = [
   {
     icon: 'Mail',
     title: 'Email Us',
-    detail: 'hello@luxe-store.com',
+    detail: 'info@purehubskincare.com',
     description: 'We respond within 24 hours',
   },
   {
     icon: 'Phone',
     title: 'Call Us',
-    detail: '+1 (555) 123-4567',
-    description: 'Mon-Fri, 9am-6pm EST',
+    detail: '03295033300',
+    description: 'Mon-Fri, 9am-6pm',
   },
   {
     icon: 'MapPin',
     title: 'Visit Us',
-    detail: '123 Design District',
-    description: 'New York, NY 10001',
+    detail: 'Sophia Farms, Bedian Road',
+    description: 'Lahore, Pakistan',
   },
   {
     icon: 'Clock',

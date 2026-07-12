@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { ArrowLeft, ArrowRight, ArrowUpRight, Camera, Mail, MessageCircle, Phone, Star } from 'lucide-react'
+import { ArrowLeft, ArrowRight, ArrowUpRight, Mail, MessageCircle, Star } from 'lucide-react'
 import abtSecImg from '../../assets/abt-img.png'
 import productExp1Img from '../../assets/product-exp1.png'
 import productExp2Img from '../../assets/product-exp2.png'
@@ -34,56 +34,67 @@ import client9Img from '../../assets/client9.jpg'
 
 const experienceSlides = [
   {
-    title: 'Barrier Restore',
-    subtitle: 'Cream',
+    title: 'Matcha Mask',
     description: 'Soft and nourishing - eucalyptus and honey',
     reviews: '(5,662) Reviews',
-    price: '$200.87',
-    slug: 'barrier-restore',
+    price: '$24.99',
+    slug: 'matcha-mask',
     leftImg: maskExpImg,
     rightImg: productExp1Img,
   },
   {
-    title: 'Body Lotion',
-    subtitle: 'Daily Milk',
+    title: 'Inner Peace Hair Mist',
     description: 'Silky hydration - oat extract and almond',
     reviews: '(4,918) Reviews',
-    price: '$180.00',
-    slug: 'body-lotion',
+    price: '$32.00',
+    slug: 'inner-peace-hair-mist',
     leftImg: hairOilImg,
     rightImg: productExp2Img,
   },
   {
-    title: 'Face Wash',
-    subtitle: 'Cleanser',
+    title: 'Cashmere Perfume',
     description: 'Gentle cleanse - aloe and green tea',
     reviews: '(3,420) Reviews',
-    price: '$145.00',
-    slug: 'face-wash',
+    price: '$45.00',
+    slug: 'cashmere-perfume',
     leftImg: perfumeImg,
     rightImg: productExp3Img,
   },
 ]
 
 const catalogueProducts = [
-  'Body Lotion',
-  'Face Wash',
-  'Barrier Restore',
-  'Sun Block',
-  'Night Cream',
-  'Glow Serum',
-  'Hair Oil',
-  'Perfume',
-  'Lip Balm',
-  'Eye Cream',
-  'Face Mask',
+  'Matcha Mask',
+  'Inner Peace Hair Mist',
+  'Cashmere Perfume',
+  'Anti-Ageing Serum',
+  'Odemme Mist',
+  'Mastana Beauty Cream',
+  'Blue Orchid Perfume',
+  'Hair Oil Serum',
+  'Spark Oil',
+  'Matcha Face Wash',
+  'Anti Ageing Cream',
 ]
+
+const cataloguePrices = {
+  'Matcha Mask': '$24.99',
+  'Inner Peace Hair Mist': '$32.00',
+  'Cashmere Perfume': '$45.00',
+  'Anti-Ageing Serum': '$38.50',
+  'Odemme Mist': '$18.99',
+  'Mastana Beauty Cream': '$28.00',
+  'Blue Orchid Perfume': '$42.00',
+  'Hair Oil Serum': '$22.50',
+  'Spark Oil': '$26.00',
+  'Matcha Face Wash': '$19.99',
+  'Anti Ageing Cream': '$34.00',
+}
 
 const blogTiles = [
   { title: 'Know More About Glassy Skin', size: 'large', tone: 'dark', img: blogImg1 },
   { title: 'How To Use Our Products', tone: 'dark', img: featureSecMainImg, objectPosition: 'top' },
-  { title: 'Product Name', price: '$00', tone: 'light', img: product6Img },
-  { title: 'Product Name', price: '$00', tone: 'light', img: product7Img },
+  { title: 'Mastana Beauty Cream', price: '$28.00', tone: 'light', img: product6Img },
+  { title: 'Blue Orchid Perfume', price: '$42.00', tone: 'light', img: product7Img },
   { title: 'Get The Perfect Glow For The Summer', tone: 'dark', img: blogImg2 },
 ]
 
@@ -212,7 +223,7 @@ export default function AboutSection() {
               className="pure-hub-showcase-top"
             >
               <div>
-                <h3>{activeExperience.title}<br />{activeExperience.subtitle}</h3>
+                <h3>{activeExperience.title}</h3>
                 <p>{activeExperience.description}</p>
                 <span>{activeExperience.reviews}</span>
               </div>
@@ -309,7 +320,7 @@ export default function AboutSection() {
               <div className="pure-hub-card-topline">
                 <h3><Link to={`/product/${product.toLowerCase().replaceAll(' ', '-')}`}>{product}</Link></h3>
                 <Link to={`/product/${product.toLowerCase().replaceAll(' ', '-')}`} className="btn-slide" aria-label={`View ${product}`}>
-                  <div className="btn-slide-inner"><span className="btn-text">$00 <ArrowUpRight /></span><span className="btn-slide-text-alt" aria-hidden="true">$00 <ArrowUpRight /></span></div>
+                  <div className="btn-slide-inner"><span className="btn-text">{cataloguePrices[product]} <ArrowUpRight /></span><span className="btn-slide-text-alt" aria-hidden="true">{cataloguePrices[product]} <ArrowUpRight /></span></div>
                 </Link>
               </div>
               <img src={[productExp1Img, productExp2Img, productExp3Img, product4Img, product5Img, product6Img, product7Img, product9Img, product10Img, product11Img, product12Img][(catalogueIndex + index) % catalogueProducts.length]} alt="" className="pure-hub-catalogue-image" />
@@ -355,14 +366,14 @@ export default function AboutSection() {
             <p>Know more about how we work and contact us for a newsletter or collaboration</p>
             <Link to="/contact" className="pure-hub-light-button btn-slide"><div className="btn-slide-inner"><span className="btn-text">Contact Us</span><span className="btn-slide-text-alt" aria-hidden="true">Contact Us</span></div></Link>
           </div>
-          <p className="pure-hub-contact-address">1 Tampines Drive #01-99 abc<br />space Singapore 123456</p>
+          <p className="pure-hub-contact-address">Sophia Farms, Bedian Road, Lahore</p>
           <div className="pure-hub-contact-socials" aria-label="Social links">
-            <a href="#"><MessageCircle /></a>
-            <a href="#"><Phone /></a>
-            <a href="#"><Camera /></a>
-            <a href="#"><Mail /></a>
+            <a href="#" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
+            <a href="#" aria-label="WhatsApp"><MessageCircle /></a>
+            <a href="#" aria-label="Gmail"><Mail /></a>
           </div>
-          <p className="pure-hub-contact-details">323-967-098<br />duasajjad.info@gmail.com</p>
+          <p className="pure-hub-contact-details">03295033300<br />info@purehubskincare.com</p>
         </div>
 
         <footer className="pure-hub-home-footer">
@@ -379,7 +390,7 @@ export default function AboutSection() {
             <Link to="/terms">Terms of Services</Link>
           </div>
         </footer>
-        <p className="pure-hub-copyright">All rights reserved © 2023 Pure Hub</p>
+        <p className="pure-hub-copyright">© 2026 - Purehub. All rights reserved</p>
       </section>
     </>
   )

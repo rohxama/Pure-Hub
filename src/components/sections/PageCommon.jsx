@@ -43,7 +43,7 @@ export function ContactBand() {
     <section className="ph-contact-band">
       <EmptyImage className="ph-contact-band-image" />
       <div>
-        <h2>Get In<br />Touch<br />With Us</h2>
+        <h1>Get In<br />Touch<br />With Us</h1>
         <p>We&apos;d love to hear from you. Reach out for any questions or support.</p>
         <Link to="/contact" className="btn-slide"><div className="btn-slide-inner"><span className="btn-text">Contact Us</span><span className="btn-slide-text-alt" aria-hidden="true">Contact Us</span></div></Link>
       </div>
@@ -76,7 +76,7 @@ export function PageFooter({ active = 'Home' }) {
           <Link to="/terms">Terms & Conditions</Link>
         </div>
       </footer>
-      <p className="ph-copyright">© 2025 Pure Hub. All Rights Reserved.</p>
+      <p className="ph-copyright">© 2026 - Purehub. All rights reserved</p>
     </>
   )
 }

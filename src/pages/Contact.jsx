@@ -4,9 +4,9 @@ import { Clock, Mail, MapPin, Phone, Plus } from 'lucide-react'
 import { Newsletter, PageFooter, PageHero } from '@/components/sections/PageCommon'
 
 const contactItems = [
-  ['Email Us', 'hello@purehub.com', Mail],
-  ['Call Us', '+1 (555) 123-4567', Phone],
-  ['Our Location', '123 Glow Street, Suite 100 Los Angeles, CA 90001, USA', MapPin],
+  ['Email Us', 'info@purehubskincare.com', Mail],
+  ['Call Us', '03295033300', Phone],
+  ['Our Location', 'Sophia Farms, Bedian Road, Lahore', MapPin],
   ['Business Hours', 'Mon - Fri: 9:00 AM - 6:00 PM Sat - Sun: Closed', Clock],
 ]
 

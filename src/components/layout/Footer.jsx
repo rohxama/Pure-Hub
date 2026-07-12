@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Globe, MessageCircle, Share2, ArrowUpRight, Mail } from 'lucide-react'
+import { ArrowUpRight, Mail, MessageCircle } from 'lucide-react'
 import { FOOTER_LINKS } from '@/constants'
 
 export default function Footer() {
@@ -42,15 +42,18 @@ export default function Footer() {
               Curating the finest products for the discerning consumer. Quality, design, and sustainability at our core.
             </p>
             <div className="flex gap-3 mt-6">
-              {[Globe, MessageCircle, Share2].map((Icon, i) => (
-                <a
-                  key={i}
-                  href="#"
-                  className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors duration-200"
-                >
-                  <Icon className="w-4 h-4" />
-                </a>
-              ))}
+              <a href="#" aria-label="Facebook" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors duration-200">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              </a>
+              <a href="#" aria-label="Instagram" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors duration-200">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+              </a>
+              <a href="#" aria-label="WhatsApp" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors duration-200">
+                <MessageCircle className="w-4 h-4" />
+              </a>
+              <a href="#" aria-label="Gmail" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors duration-200">
+                <Mail className="w-4 h-4" />
+              </a>
             </div>
           </div>
 
@@ -80,7 +83,7 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 py-6">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-sm text-neutral-500">&copy; 2026 Pure Hub. All rights reserved.</p>
+            <p className="text-sm text-neutral-500">&copy; 2026 - Purehub. All rights reserved</p>
             <div className="flex items-center gap-6">
               <span className="text-xs text-neutral-500">We accept</span>
               <div className="flex gap-2">
