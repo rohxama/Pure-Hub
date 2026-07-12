@@ -2,22 +2,87 @@ import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ChevronDown, Filter, Heart, SlidersHorizontal, Star } from 'lucide-react'
 import { products } from '@/data/products'
-import { EmptyImage, Newsletter, PageFooter, PageHero } from '@/components/sections/PageCommon'
+import { Newsletter, PageFooter, PageHero } from '@/components/sections/PageCommon'
+import hero2Img from '@/assets/hero2.png'
+import product4Img from '@/assets/product4 (2).png'
+import product5Img from '@/assets/product5.png'
+import product6Img from '@/assets/product6.png'
+import product7Img from '@/assets/product7.png'
+import product9Img from '@/assets/product9.png'
+import product10Img from '@/assets/product10.png'
+import product11Img from '@/assets/product11.png'
+import product12Img from '@/assets/product12.png'
+import productExp1Img from '@/assets/product-exp1.png'
+import productExp2Img from '@/assets/product-exp2.png'
+import productExp3Img from '@/assets/product-exp3.png'
+import perfumeImg from '@/assets/perfume.png'
+import hairOilImg from '@/assets/hair-oil.png'
+import featureSecMainImg from '@/assets/feature-sec-main-img.png'
+import feature1Img from '@/assets/feature1-img.jpg'
+import feature2Img from '@/assets/feature2-img.jpg'
+import feature4Img from '@/assets/feature4-img.jpg'
 
-const categories = ['All Products', 'Face Care', 'Body Care', 'Serums', 'Moisturizers', 'Cleansers', 'Masks']
+const productImageMap = {
+  'matcha-mask': productExp1Img,
+  'inner-peace-hair-mist': productExp2Img,
+  'cashmere-perfume': productExp3Img,
+  'anti-ageing-serum': product4Img,
+  'odemme-mist': product5Img,
+  'mastana-beauty-cream': product6Img,
+  'blue-orchid-perfume': product7Img,
+  'hair-oil-serum': product9Img,
+  'spark-oil': product10Img,
+  'matcha-face-wash': product11Img,
+  'anti-ageing-cream': product12Img,
+}
+
+const categoryLabels = {
+  'face-care': 'Face Care',
+  serums: 'Serums',
+  moisturizers: 'Moisturizers',
+  'body-care': 'Body Care',
+  fragrance: 'Fragrance',
+}
+const categories = [
+  'All Products',
+  ...Array.from(new Set(products.map((product) => product.category))).map(
+    (value) => categoryLabels[value] || value,
+  ),
+]
 const skinTypes = ['All Skin Types', 'Normal', 'Oily', 'Dry', 'Sensitive', 'Combination']
 const concerns = ['Hydration', 'Anti-Aging', 'Acne Care', 'Brightening', 'Soothing']
 const chips = ['All Products', 'Best Seller', 'New Arrivals', 'On Sale']
 
+const PRICE_MIN = 10
+
 export default function Products() {
   const [category, setCategory] = useState('All Products')
   const [skinType, setSkinType] = useState('All Skin Types')
+  const [concernsSel, setConcernsSel] = useState([])
+  const [priceMax, setPriceMax] = useState(450)
+  const [availability, setAvailability] = useState('In Stock')
   const [chip, setChip] = useState('All Products')
   const [sort, setSort] = useState('Featured')
   const [page, setPage] = useState(1)
+  const [filtersOpen, setFiltersOpen] = useState(false)
 
   const visibleProducts = useMemo(() => {
     let result = [...products]
+    if (category !== 'All Products') {
+      result = result.filter(
+        (product) => (categoryLabels[product.category] || product.category) === category,
+      )
+    }
+    if (skinType !== 'All Skin Types') {
+      result = result.filter((product) => product.skinType === skinType)
+    }
+    if (concernsSel.length > 0) {
+      result = result.filter((product) =>
+        concernsSel.some((concern) => product.concerns?.includes(concern)),
+      )
+    }
+    result = result.filter((product) => product.price <= priceMax)
+    if (availability === 'In Stock') result = result.filter((product) => product.inStock)
     if (chip === 'Best Seller') result = result.filter((product) => product.badge?.toLowerCase().includes('best') || product.rating >= 4.8)
     if (chip === 'New Arrivals') result = result.filter((product) => product.badge?.toLowerCase().includes('new') || product.id % 3 === 0)
     if (chip === 'On Sale') result = result.filter((product) => product.originalPrice)
@@ -25,7 +90,7 @@ export default function Products() {
     if (sort === 'Price: High to Low') result.sort((a, b) => b.price - a.price)
     if (sort === 'Rating') result.sort((a, b) => b.rating - a.rating)
     return result
-  }, [chip, sort])
+  }, [category, skinType, concernsSel, priceMax, availability, chip, sort])
 
   const paged = visibleProducts.slice((page - 1) * 12, page * 12)
 
@@ -35,20 +100,39 @@ export default function Products() {
         titleItalic="Our"
         titleRest="Products"
         copy="Discover skincare crafted with nature and science to nourish, protect, and bring out your natural glow."
+        backgroundImage={hero2Img}
       />
 
       <section className="ph-products-layout">
-        <aside className="ph-filter-panel">
-          <button type="button" className="ph-filter-trigger btn-slide"><SlidersHorizontal /> <div className="btn-slide-inner"><span className="btn-text">Filter</span><span className="btn-slide-text-alt" aria-hidden="true">Filter</span></div></button>
-          <FilterGroup title="Categories" items={categories} active={category} setActive={setCategory} />
-          <FilterGroup title="Skin Type" items={skinTypes} active={skinType} setActive={setSkinType} />
+        <aside className={`ph-filter-panel ${filtersOpen ? 'ph-filter-open' : ''}`}>
+          <button type="button" className="ph-filter-trigger" onClick={() => setFiltersOpen((value) => !value)}><SlidersHorizontal /> Filter</button>
+          <FilterGroup title="Categories" items={categories} active={category} setActive={(value) => { setCategory(value); setPage(1) }} />
+          <FilterGroup title="Skin Type" items={skinTypes} active={skinType} setActive={(value) => { setSkinType(value); setPage(1) }} />
           <div className="ph-filter-block">
             <h3>Price <ChevronDown /></h3>
-            <input type="range" min="10" max="100" defaultValue="70" aria-label="Price range" />
-            <div className="ph-price-range"><span>$10</span><span>$100</span></div>
+            <input
+              type="range"
+              min={PRICE_MIN}
+              max="450"
+              value={priceMax}
+              onChange={(event) => { setPriceMax(Number(event.target.value)); setPage(1) }}
+              aria-label="Price range"
+            />
+            <div className="ph-price-range"><span>${PRICE_MIN}</span><span>${priceMax}</span></div>
           </div>
-          <FilterGroup title="Concerns" items={concerns} active="" setActive={() => {}} checkbox />
-          <FilterGroup title="Availability" items={['In Stock', 'Out of Stock']} active="In Stock" setActive={() => {}} checkbox />
+          <FilterGroup
+            title="Concerns"
+            items={concerns}
+            active={concernsSel}
+            setActive={(value) => {
+              setConcernsSel((current) =>
+                current.includes(value) ? current.filter((item) => item !== value) : [...current, value],
+              )
+              setPage(1)
+            }}
+            checkbox
+          />
+          <FilterGroup title="Availability" items={['In Stock', 'Out of Stock']} active={availability} setActive={(value) => { setAvailability(value); setPage(1) }} checkbox />
         </aside>
 
         <div className="ph-products-main">
@@ -71,9 +155,9 @@ export default function Products() {
                   setChip(item)
                   setPage(1)
                 }}
-                className={`${chip === item ? 'ph-active ' : ''}btn-slide`}
+                className={chip === item ? 'ph-active' : ''}
               >
-                <div className="btn-slide-inner"><span className="btn-text">{item}</span><span className="btn-slide-text-alt" aria-hidden="true">{item}</span></div>
+                {item}
               </button>
             ))}
           </div>
@@ -83,11 +167,11 @@ export default function Products() {
               <article className="ph-product-card" key={product.id}>
                 <Link to={`/product/${product.slug}`}>
                   <div className="ph-product-media">
-                    <EmptyImage />
+                    <img src={productImageMap[product.slug]} alt={product.name} className="ph-product-image" />
                     {product.originalPrice ? <span>{Math.max(10, Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100))}% OFF</span> : product.badge ? <span>{product.badge}</span> : null}
                     <button type="button" aria-label={`Save ${product.name}`}><Heart /></button>
                   </div>
-                  <p className="ph-product-category">Face Care</p>
+                  <p className="ph-product-category">{product.category}</p>
                   <h2>{product.name}</h2>
                   <div className="ph-card-stars">
                     {[1, 2, 3, 4, 5].map((star) => <Star key={star} />)}
@@ -113,24 +197,13 @@ export default function Products() {
       </section>
 
       <Newsletter />
-      <section className="ph-product-benefits">
-        {[
-          ['Clean Ingredients', 'Carefully selected natural ingredients for your skin.'],
-          ['Dermatologist-Tested', 'Tested for safety and effectiveness.'],
-          ['Sustainable Beauty', 'Eco-friendly packaging for a better tomorrow.'],
-        ].map(([title, copy]) => (
-          <article key={title}>
-            <span><Filter /></span>
-            <div><h3>{title}</h3><p>{copy}</p></div>
-          </article>
-        ))}
-      </section>
       <PageFooter active="Products" />
     </main>
   )
 }
 
 function FilterGroup({ title, items, active, setActive, checkbox = false }) {
+  const isChecked = (item) => (checkbox ? Array.isArray(active) ? active.includes(item) : item === active : active === item)
   return (
     <div className="ph-filter-block">
       <h3>{title} <ChevronDown /></h3>
@@ -139,7 +212,7 @@ function FilterGroup({ title, items, active, setActive, checkbox = false }) {
           <input
             type={checkbox ? 'checkbox' : 'radio'}
             name={title}
-            checked={checkbox ? item === 'In Stock' : active === item}
+            checked={isChecked(item)}
             onChange={() => setActive(item)}
           />
           {item}
