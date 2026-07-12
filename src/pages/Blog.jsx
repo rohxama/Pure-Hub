@@ -1,7 +1,11 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ChevronDown } from 'lucide-react'
-import { ContactBand, EmptyImage, InlineArrow, Newsletter, PageFooter, PageHero } from '@/components/sections/PageCommon'
+import { ContactSection, InlineArrow, PageFooter, PageHero } from '@/components/sections/PageCommon'
+import hero2Img from '@/assets/hero2.png'
+import feature1Img from '@/assets/feature1-img.jpg'
+import feature2Img from '@/assets/feature2-img.jpg'
+import feature3Img from '@/assets/feature3-img.jpg'
 
 const posts = [
   {
@@ -9,18 +13,21 @@ const posts = [
     date: 'May 12, 2025',
     title: 'A Simple Routine For Healthy, Glowing Skin',
     copy: 'Discover a gentle daily skincare routine that nourishes your skin and brings out your natural glow.',
+    image: feature1Img,
   },
   {
     category: 'Ingredients',
     date: 'May 8, 2025',
     title: 'The Power Of Natural Ingredients',
     copy: 'Learn how carefully selected natural ingredients can transform your skin in the most effective way.',
+    image: feature2Img,
   },
   {
     category: 'Wellness',
     date: 'May 3, 2025',
     title: 'Self-Care Rituals For A Better You',
     copy: 'Small moments of self-care can make a big difference. Here are easy rituals to feel your best every day.',
+    image: feature3Img,
   },
 ]
 
@@ -37,6 +44,7 @@ export default function Blog() {
         titleItalic="Our"
         titleRest="Blog"
         copy="Insights, tips, and stories to help you nourish your skin and embrace natural beauty every day."
+        backgroundImage={hero2Img}
       />
 
       <section className="ph-blog-list">
@@ -53,7 +61,7 @@ export default function Blog() {
         <div className="ph-post-grid">
           {visiblePosts.map((post) => (
             <article key={post.title} className="ph-post-card">
-              <EmptyImage className="ph-post-image" />
+              <img src={post.image} alt={post.title} className="ph-post-image" />
               <p>{post.category} <span>•</span> {post.date}</p>
               <h2>{post.title}</h2>
               <p>{post.copy}</p>
@@ -65,8 +73,7 @@ export default function Blog() {
         </div>
       </section>
 
-      <Newsletter />
-      <ContactBand />
+      <ContactSection />
       <PageFooter active="Blog" />
     </main>
   )
