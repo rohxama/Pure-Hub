@@ -1,7 +1,12 @@
-import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Beaker, Leaf, ShieldCheck, Sprout, Plus } from 'lucide-react'
-import { ContactBand, EmptyImage, PageFooter, PageHero } from '@/components/sections/PageCommon'
+import { Beaker, Leaf, ShieldCheck, Sprout } from 'lucide-react'
+import { ContactSection, EmptyImage, PageFooter, PageHero } from '@/components/sections/PageCommon'
+import hero2Img from '@/assets/hero2.png'
+import simpleBgImg from '@/assets/simple bg.png'
+import client1Img from '@/assets/client1.jpg'
+import client2Img from '@/assets/client2.jpg'
+import client3Img from '@/assets/client3.jpg'
+import client4Img from '@/assets/client4.jpg'
 
 const values = [
   ['Natural Ingredients', 'Carefully selected botanical ingredients that nourish and protect your skin.', Leaf],
@@ -10,11 +15,14 @@ const values = [
   ['Dermatologist-Tested', 'Each product is tested to ensure safety, quality, and effectiveness.', ShieldCheck],
 ]
 
-const promises = ['Paraben-Free', 'Sulfate-Free', 'Cruelty-Free', 'Toxin-Free', 'Made With Care']
-const experts = ['Dr. Olivia Carter', 'James Mitchell', 'Sophia Reynolds', 'Emily Watson']
+const experts = [
+  ['Dr. Olivia Carter', 'Chief Formulator', client1Img],
+  ['James Mitchell', 'Skincare Researcher', client2Img],
+  ['Sophia Reynolds', 'Product Developer', client3Img],
+  ['Emily Watson', 'Wellness Expert', client4Img],
+]
 
 export default function About() {
-  const [openPromise, setOpenPromise] = useState(0)
 
   return (
     <main className="ph-page">
@@ -22,6 +30,7 @@ export default function About() {
         titleItalic="About"
         titleRest="Us"
         copy="At Pure Hub, we believe real beauty begins with healthy, nourished skin and honest, high-quality skincare."
+        backgroundImage={hero2Img}
       />
 
       <section className="ph-about-mission">
@@ -45,7 +54,7 @@ export default function About() {
         ))}
       </section>
 
-      <section className="ph-dark-callout">
+      <section className="ph-dark-callout" style={{ backgroundImage: `url(${simpleBgImg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
         <h2>The Power Of Nature<br />For <span>Glowing Skin</span></h2>
         <div>
           <p>We combine the best of nature and science to create skincare that is gentle, effective, and honest.</p>
@@ -53,45 +62,20 @@ export default function About() {
         </div>
       </section>
 
-      <section className="ph-promise">
-        <div>
-          <p className="ph-kicker">Our Promise</p>
-          <h2>Clean, Conscious,<br />And <span>Effective</span></h2>
-          <EmptyImage className="ph-promise-image" />
-        </div>
-        <div>
-          <p>We are committed to transparency in every step, from ingredient sourcing to product formulation.</p>
-          <div className="ph-accordion">
-            {promises.map((promise, index) => (
-              <button
-                key={promise}
-                type="button"
-                onClick={() => setOpenPromise(openPromise === index ? -1 : index)}
-                className={openPromise === index ? 'ph-open' : ''}
-              >
-                <span>{String(index + 1).padStart(2, '0')}</span>
-                {promise}
-                <Plus />
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section className="ph-experts">
         <div className="ph-two-col-heading">
           <div>
             <p className="ph-kicker">Our Experts</p>
-            <h2>The Minds Behind<br /><span>Pure Hub</span></h2>
+            <h2>The Minds Behind <span>Pure Hub</span></h2>
           </div>
           <p>A team of skincare specialists, researchers, and formulators dedicated to creating products that truly care for your skin.</p>
         </div>
         <div className="ph-expert-grid">
-          {experts.map((expert) => (
-            <article key={expert}>
-              <EmptyImage />
-              <h3>{expert}</h3>
-              <p>{expert.includes('Olivia') ? 'Chief Formulator' : expert.includes('James') ? 'Skincare Researcher' : expert.includes('Sophia') ? 'Product Developer' : 'Wellness Expert'}</p>
+          {experts.map(([name, role, img]) => (
+            <article key={name}>
+              <img src={img} alt={name} className="ph-expert-img" />
+              <h3>{name}</h3>
+              <p>{role}</p>
             </article>
           ))}
         </div>
@@ -108,7 +92,7 @@ export default function About() {
         ))}
       </section>
 
-      <ContactBand />
+      <ContactSection />
       <PageFooter active="About" />
     </main>
   )
