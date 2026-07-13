@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom'
 import { Beaker, Leaf, ShieldCheck, Sprout } from 'lucide-react'
 import { ContactSection, EmptyImage, PageFooter, PageHero } from '@/components/sections/PageCommon'
-import hero2Img from '@/assets/hero2.png'
-import simpleBgImg from '@/assets/simple bg.png'
-import client1Img from '@/assets/client1.jpg'
-import client2Img from '@/assets/client2.jpg'
-import client3Img from '@/assets/client3.jpg'
-import client4Img from '@/assets/client4.jpg'
+import hero2Img from '@/assets/hero2.avif'
+import simpleBgImg from '@/assets/simple bg.avif'
+import client1Img from '@/assets/client1.avif'
+import client2Img from '@/assets/client2.avif'
+import client3Img from '@/assets/client3.avif'
+import client4Img from '@/assets/client4.avif'
 
 const values = [
   ['Natural Ingredients', 'Carefully selected botanical ingredients that nourish and protect your skin.', Leaf],

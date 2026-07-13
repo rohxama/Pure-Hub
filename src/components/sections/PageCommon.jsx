@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight, Mail, MessageCircle } from 'lucide-react'
-import logoImg from '../../assets/logo.png'
-import simpleBgImg from '../../assets/simple bg.png'
-import footerImg from '../../assets/footer-img.jpg'
+import logoImg from '../../assets/logo.avif'
+import simpleBgImg from '../../assets/simple bg.avif'
+import footerImg from '../../assets/footer-img.avif'
 
 export function EmptyImage({ className = '' }) {
   return (

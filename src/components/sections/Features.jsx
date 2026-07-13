@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowDownLeft } from 'lucide-react'
-import featureSecMainImg from '../../assets/feature-sec-main-img.png'
-import feature1Img from '../../assets/feature1-img.jpg'
-import feature2Img from '../../assets/feature2-img.jpg'
-import feature3Img from '../../assets/feature3-img.jpg'
+import featureSecMainImg from '../../assets/feature-sec-main-img.avif'
+import feature1Img from '../../assets/feature1-img.avif'
+import feature2Img from '../../assets/feature2-img.avif'
+import feature3Img from '../../assets/feature3-img.avif'
 import feature4Img from '../../assets/feature4-img.jpg'
 
 const featureRows = [

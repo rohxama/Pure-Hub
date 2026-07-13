@@ -2,10 +2,10 @@ import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ChevronDown } from 'lucide-react'
 import { ContactSection, InlineArrow, PageFooter, PageHero } from '@/components/sections/PageCommon'
-import hero2Img from '@/assets/hero2.png'
-import feature1Img from '@/assets/feature1-img.jpg'
-import feature2Img from '@/assets/feature2-img.jpg'
-import feature3Img from '@/assets/feature3-img.jpg'
+import hero2Img from '@/assets/hero2.avif'
+import feature1Img from '@/assets/feature1-img.avif'
+import feature2Img from '@/assets/feature2-img.avif'
+import feature3Img from '@/assets/feature3-img.avif'
 
 const posts = [
   {

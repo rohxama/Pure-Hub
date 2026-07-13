@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useCart } from '@/context/CartContext'
 import { NAV_LINKS } from '@/constants'
-import logoSrc from '@/assets/logo.png'
+import logoSrc from '@/assets/logo.avif'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)

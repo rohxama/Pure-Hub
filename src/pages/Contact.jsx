@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Clock, Mail, MapPin, Phone, Plus } from 'lucide-react'
 import { Newsletter, PageFooter, PageHero } from '@/components/sections/PageCommon'
-import hero2Img from '@/assets/hero2.png'
+import hero2Img from '@/assets/hero2.avif'
 
 const contactItems = [
   ['Email Us', 'info@purehubskincare.com', Mail],
