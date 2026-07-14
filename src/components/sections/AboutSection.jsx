@@ -136,9 +136,17 @@ export default function AboutSection() {
   const [catalogueIndex, setCatalogueIndex] = useState(0)
   const [catalogueDir, setCatalogueDir] = useState(1)
   const [reviewIndex, setReviewIndex] = useState(0)
+  const [catalogueVisible, setCatalogueVisible] = useState(4)
+
+  useEffect(() => {
+    const updateVisible = () => setCatalogueVisible(window.innerWidth <= 800 ? 3 : 4)
+    updateVisible()
+    window.addEventListener('resize', updateVisible)
+    return () => window.removeEventListener('resize', updateVisible)
+  }, [])
 
   const activeExperience = experienceSlides[experienceIndex]
-  const visibleCatalogue = Array.from({ length: 4 }, (_, index) => (
+  const visibleCatalogue = Array.from({ length: catalogueVisible }, (_, index) => (
     catalogueProducts[(catalogueIndex + index) % catalogueProducts.length]
   ))
 
@@ -160,7 +168,7 @@ export default function AboutSection() {
   const goCatalogue = (direction) => {
     setCatalogueDir(direction)
     setCatalogueIndex((current) => {
-      const next = current + direction * 4
+      const next = current + direction * catalogueVisible
       const len = catalogueProducts.length
       return ((next % len) + len) % len
     })
