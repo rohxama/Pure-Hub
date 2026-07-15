@@ -10,12 +10,25 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [isVisible, setIsVisible] = useState(true)
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isDesktop, setIsDesktop] = useState(true)
   const location = useLocation()
   const { cartItemsCount } = useCart()
   const hideTimeout = useRef(null)
   const lastScrollY = useRef(0)
 
   useEffect(() => {
+    const checkDesktop = () => setIsDesktop(window.innerWidth >= 1024)
+    checkDesktop()
+    window.addEventListener('resize', checkDesktop)
+    return () => window.removeEventListener('resize', checkDesktop)
+  }, [])
+
+  useEffect(() => {
+    if (!isDesktop) {
+      setIsVisible(true)
+      return
+    }
+
     const handleScroll = () => {
       const y = window.scrollY
       setIsScrolled(y > 20)
@@ -31,9 +44,11 @@ export default function Navbar() {
 
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  }, [isDesktop])
 
   useEffect(() => {
+    if (!isDesktop) return
+
     const handleMouseMove = (e) => {
       if (window.scrollY <= 0) {
         setIsVisible(true)
@@ -56,7 +71,7 @@ export default function Navbar() {
       window.removeEventListener('mousemove', handleMouseMove)
       if (hideTimeout.current) clearTimeout(hideTimeout.current)
     }
-  }, [])
+  }, [isDesktop])
 
   useEffect(() => {
     setIsOpen(false)
@@ -145,21 +160,32 @@ export default function Navbar() {
         transition={{ type: 'spring', stiffness: 300, damping: 30 }}
         className="fixed inset-y-0 right-0 w-full max-w-sm bg-white z-50 lg:hidden shadow-2xl"
       >
-        <div className="flex flex-col h-full pt-20 pb-6 px-6">
-          <nav className="flex-1 space-y-1">
+        <div className="flex flex-col h-full">
+          <div className="flex items-center justify-between px-6 pt-5 pb-4 border-b border-neutral-100">
+            <span className="text-sm font-medium text-neutral-400">Menu</span>
+            <button
+              onClick={() => setIsOpen(false)}
+              className="pure-hub-icon-button"
+              aria-label="Close menu"
+            >
+              <X className="h-5 w-5" />
+            </button>
+          </div>
+
+          <nav className="flex-1 overflow-y-auto px-4 py-4">
             {NAV_LINKS.map((link, i) => (
               <motion.div
                 key={link.path}
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: isOpen ? 1 : 0, x: isOpen ? 0 : 20 }}
-                transition={{ delay: i * 0.1 }}
+                transition={{ delay: i * 0.06 }}
               >
                 <Link
                   to={link.path}
-                  className={`flex items-center py-4 px-4 rounded-xl text-lg font-medium transition-all duration-200 ${
+                  className={`flex items-center py-3.5 px-4 rounded-xl text-base font-medium transition-all duration-200 ${
                     location.pathname === link.path
                       ? 'bg-neutral-900 text-white'
-                      : 'hover:bg-neutral-50 text-neutral-700'
+                      : 'text-neutral-700 active:bg-neutral-50'
                   }`}
                 >
                   {link.name}
@@ -168,7 +194,7 @@ export default function Navbar() {
             ))}
           </nav>
 
-          <div className="pt-4 pb-6">
+          <div className="px-6 pt-4 pb-3">
             <Link
               to="/products"
               className="flex items-center justify-center w-full py-3.5 bg-neutral-900 text-white rounded-full text-sm font-medium hover:bg-neutral-800 transition-all duration-300 btn-slide"
@@ -177,8 +203,8 @@ export default function Navbar() {
             </Link>
           </div>
 
-          <div className="pt-4 border-t border-neutral-100">
-            <p className="text-xs text-neutral-400 text-center">&copy; 2026 Pure Hub. All rights reserved.</p>
+          <div className="px-6 pt-3 pb-6 border-t border-neutral-100">
+            <p className="text-xs text-neutral-400 text-center">&copy; 2026 Pure Hub</p>
           </div>
         </div>
       </motion.div>
