@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { ArrowLeft, ArrowRight, CheckCircle, ChevronRight, Heart, Minus, Plus, Share2, Star } from 'lucide-react'
@@ -79,10 +79,21 @@ export default function ProductDetail() {
   const [activeTab, setActiveTab] = useState('how-to-use')
   const [relatedStart, setRelatedStart] = useState(0)
   const [selectedSize, setSelectedSize] = useState('30 ml')
+  const [relatedVisible, setRelatedVisible] = useState(4)
+
+  useEffect(() => {
+    const updateRelated = () => {
+      const w = window.innerWidth
+      setRelatedVisible(w <= 576 ? 2 : w <= 800 ? 3 : 4)
+    }
+    updateRelated()
+    window.addEventListener('resize', updateRelated)
+    return () => window.removeEventListener('resize', updateRelated)
+  }, [])
 
   const galleryCount = Math.max(product.images?.length || 0, 5)
   const relatedProducts = products.filter((p) => p.id !== product.id)
-  const visibleRelated = Array.from({ length: 4 }, (_, index) => (
+  const visibleRelated = Array.from({ length: relatedVisible }, (_, index) => (
     relatedProducts[(relatedStart + index) % relatedProducts.length]
   ))
 
@@ -118,9 +129,11 @@ export default function ProductDetail() {
   }
 
   const moveRelated = (direction) => {
-    setRelatedStart((current) => (
-      (current + direction + relatedProducts.length) % relatedProducts.length
-    ))
+    setRelatedStart((current) => {
+      const next = current + direction * relatedVisible
+      const len = relatedProducts.length
+      return ((next % len) + len) % len
+    })
   }
 
   const addCurrentToCart = () => {
