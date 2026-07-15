@@ -139,7 +139,10 @@ export default function AboutSection() {
   const [catalogueVisible, setCatalogueVisible] = useState(4)
 
   useEffect(() => {
-    const updateVisible = () => setCatalogueVisible(window.innerWidth <= 800 ? 3 : 4)
+    const updateVisible = () => {
+      const w = window.innerWidth
+      setCatalogueVisible(w <= 576 ? 2 : w <= 800 ? 3 : 4)
+    }
     updateVisible()
     window.addEventListener('resize', updateVisible)
     return () => window.removeEventListener('resize', updateVisible)
