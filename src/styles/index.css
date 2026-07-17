@@ -256,6 +256,7 @@ html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+  overflow-x: clip;
 }
 
 body {
@@ -267,6 +268,7 @@ body {
   background-color: var(--color-bg-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
 }
 
 /* Selection */
@@ -6165,5 +6167,71 @@ select {
   .ph-contact-info,
   .ph-contact-form {
     padding: 1.25rem;
+  }
+}
+
+/* Final narrow-screen safeguards. These only resolve flex/grid minimum sizes and
+   off-canvas paint overflow; desktop geometry remains governed by the rules above. */
+#root,
+main {
+  max-width: 100%;
+}
+
+@media (max-width: 480px) {
+  .pure-hub-feature-row {
+    grid-template-columns: 1.9rem minmax(0, 1fr) auto;
+    column-gap: 0.45rem;
+    min-height: 3.75rem;
+  }
+
+  .pure-hub-feature-number {
+    padding-top: 0.85rem;
+    font-size: 0.7rem;
+  }
+
+  .pure-hub-feature-title-group,
+  .pure-hub-feature-right {
+    min-width: 0;
+  }
+
+  .pure-hub-feature-title {
+    font-size: clamp(1rem, 5.4vw, 1.2rem);
+    overflow-wrap: anywhere;
+  }
+
+  .pure-hub-feature-description {
+    display: none;
+  }
+
+  .pure-hub-feature-arrow {
+    width: 1.85rem;
+    height: 1.85rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .pure-hub-about-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+  }
+
+  .ph-contact-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .ph-contact-form,
+  .ph-contact-info {
+    min-width: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .pure-hub-detail-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+  }
+
+  .pure-hub-detail-info {
+    min-width: 0;
   }
 }
