@@ -4510,19 +4510,23 @@ select {
   }
 
   .pure-hub-hero-product-img {
-    position: relative;
-    top: auto;
-    left: auto;
-    transform: rotate(15deg);
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(20deg);
+    transform-origin: center;
     display: block;
-    margin: 1.5rem auto 0;
-    pointer-events: auto;
-    z-index: auto;
+    pointer-events: none;
+    z-index: 3;
   }
 
   .pure-hub-hero-product-img img {
-    height: clamp(10rem, 45vw, 14rem);
+    height: clamp(12rem, 50vw, 16rem);
     width: auto;
+  }
+
+  .pure-hub-hero-button {
+    display: none;
   }
 
   .pure-hub-features {
@@ -5564,19 +5568,23 @@ select {
   }
 
   .pure-hub-hero-product-img {
-    position: relative;
-    top: auto;
-    left: auto;
-    transform: rotate(15deg);
+    position: absolute;
+    top: 12%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(20deg);
+    transform-origin: center;
     display: block;
-    margin: -2rem auto 0;
-    pointer-events: auto;
-    z-index: auto;
+    pointer-events: none;
+    z-index: 3;
   }
 
   .pure-hub-hero-product-img img {
-    height: clamp(12rem, 50vw, 18rem);
+    height: clamp(10rem, 45vw, 14rem);
     width: auto;
+  }
+
+  .pure-hub-hero-button {
+    display: none;
   }
 
   .pure-hub-hero-line-one {
