@@ -158,7 +158,9 @@ export default function Navbar() {
         initial={false}
         animate={{ x: isOpen ? 0 : '100%' }}
         transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-        className="fixed inset-y-0 right-0 w-full max-w-sm bg-white z-50 lg:hidden shadow-2xl"
+        className={`fixed inset-y-0 right-0 w-full max-w-sm bg-white lg:hidden shadow-2xl transition-none ${
+          isOpen ? 'z-[101]' : 'z-50'
+        }`}
       >
         <div className="flex flex-col h-full">
           <div className="flex items-center justify-between px-6 pt-5 pb-4 border-b border-neutral-100">
