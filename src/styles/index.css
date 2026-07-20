@@ -3007,6 +3007,68 @@ select {
   }
 }
 
+@media (max-width: 1100px) {
+  .pure-hub-avatar-cloud {
+    min-height: clamp(18rem, 26vw, 24rem);
+  }
+
+  .pure-hub-avatar-one {
+    width: 7.5rem;
+    height: 7.5rem;
+  }
+
+  .pure-hub-avatar-two {
+    left: 8.5rem;
+    width: 6.5rem;
+    height: 6.5rem;
+  }
+
+  .pure-hub-avatar-three {
+    left: 8rem;
+    top: 10rem;
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .pure-hub-avatar-four {
+    left: 13.5rem;
+    top: 12rem;
+    width: 5.5rem;
+    height: 5.5rem;
+  }
+
+  .pure-hub-avatar-main {
+    top: 4.5rem;
+    width: 13rem;
+    height: 13rem;
+  }
+
+  .pure-hub-avatar-five {
+    right: 18rem;
+    width: 7rem;
+    height: 7rem;
+  }
+
+  .pure-hub-avatar-six {
+    right: 12.5rem;
+    width: 6rem;
+    height: 6rem;
+  }
+
+  .pure-hub-avatar-seven {
+    right: 20rem;
+    top: 11rem;
+    width: 7rem;
+    height: 7rem;
+  }
+
+  .pure-hub-avatar-eight {
+    top: 4.5rem;
+    width: 13rem;
+    height: 13rem;
+  }
+}
+
 @media (max-width: 992px) {
   .pure-hub-catalogue-card {
     padding: 0.5rem;
