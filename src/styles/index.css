@@ -2422,7 +2422,6 @@ select {
   position: relative;
   min-height: clamp(18rem, 34vw, 34rem);
   margin-top: 2rem;
-  overflow: hidden;
 }
 
 .pure-hub-avatar {
@@ -3380,9 +3379,7 @@ select {
   }
 
   .pure-hub-avatar-cloud {
-    min-height: 10rem;
     margin-top: 1.25rem;
-    overflow: hidden;
   }
 
   .pure-hub-blog-grid {
@@ -3917,7 +3914,6 @@ select {
   }
 
   .pure-hub-avatar-cloud {
-    min-height: 8rem;
     margin-top: 1rem;
   }
 
@@ -4261,7 +4257,6 @@ select {
   }
 
   .pure-hub-avatar-cloud {
-    min-height: 7rem;
     margin-top: 1rem;
   }
 
