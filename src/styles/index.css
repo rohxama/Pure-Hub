@@ -2437,40 +2437,35 @@ select {
   left: 1%;
   top: 6%;
   width: 14%;
-  height: 0;
-  padding-bottom: 14%;
+  aspect-ratio: 1;
 }
 
 .pure-hub-avatar-two {
   left: 16%;
   top: 19%;
   width: 12%;
-  height: 0;
-  padding-bottom: 12%;
+  aspect-ratio: 1;
 }
 
 .pure-hub-avatar-three {
   left: 15.5%;
   top: 43%;
   width: 7.5%;
-  height: 0;
-  padding-bottom: 7.5%;
+  aspect-ratio: 1;
 }
 
 .pure-hub-avatar-four {
   left: 25.5%;
   top: 48%;
   width: 10.5%;
-  height: 0;
-  padding-bottom: 10.5%;
+  aspect-ratio: 1;
 }
 
 .pure-hub-avatar-main {
   left: 50%;
   top: 18%;
   width: 25%;
-  height: 0;
-  padding-bottom: 25%;
+  aspect-ratio: 1;
   transform: translateX(-50%);
   background: #c7cbbd;
 }
@@ -2479,32 +2474,28 @@ select {
   right: 33%;
   top: 9%;
   width: 13.5%;
-  height: 0;
-  padding-bottom: 13.5%;
+  aspect-ratio: 1;
 }
 
 .pure-hub-avatar-six {
   right: 22.5%;
   top: 21%;
   width: 11.5%;
-  height: 0;
-  padding-bottom: 11.5%;
+  aspect-ratio: 1;
 }
 
 .pure-hub-avatar-seven {
   right: 14%;
   top: 24%;
   width: 9.5%;
-  height: 0;
-  padding-bottom: 9.5%;
+  aspect-ratio: 1;
 }
 
 .pure-hub-avatar-eight {
   right: 0;
   top: 6%;
   width: 24%;
-  height: 0;
-  padding-bottom: 24%;
+  aspect-ratio: 1;
   background: #d7c6b2;
 }
 
