@@ -2989,15 +2989,19 @@ select {
   }
 
   .pure-hub-hero-line-one {
-    font-size: clamp(3.2rem, 8.5vw, 8rem);
+    font-size: clamp(3.2rem, 9.5vw, 8rem);
   }
 
   .pure-hub-hero-line-two {
-    font-size: clamp(3.2rem, 8.2vw, 7.8rem);
+    font-size: clamp(3.2rem, 9.2vw, 7.8rem);
   }
 
   .pure-hub-hero-line-three {
-    font-size: clamp(3.2rem, 8vw, 7.6rem);
+    font-size: clamp(3.2rem, 9vw, 7.6rem);
+  }
+
+  .pure-hub-hero-product-img img {
+    height: clamp(20rem, 55vw, 38rem);
   }
 
   .pure-hub-features {
@@ -3311,7 +3315,7 @@ select {
   .pure-hub-hero-line-one,
   .pure-hub-hero-line-two,
   .pure-hub-hero-line-three {
-    font-size: clamp(3.35rem, 14.5vw, 8rem);
+    font-size: clamp(2.8rem, 10vw, 6rem);
   }
 
   .pure-hub-hero-line-three {
@@ -3711,7 +3715,7 @@ select {
 
   /* Image responsive */
   .pure-hub-hero-product-img img {
-    height: clamp(12rem, 40vw, 22rem);
+    height: clamp(14rem, 48vw, 28rem);
   }
 
   .pure-hub-about-image {
@@ -4085,15 +4089,15 @@ select {
   }
 
   .pure-hub-hero-line-one {
-    font-size: clamp(2.5rem, 14vw, 4rem);
+    font-size: clamp(2rem, 11vw, 3.5rem);
   }
 
   .pure-hub-hero-line-two {
-    font-size: clamp(2.25rem, 13vw, 3.75rem);
+    font-size: clamp(1.85rem, 10.5vw, 3.25rem);
   }
 
   .pure-hub-hero-line-three {
-    font-size: clamp(2.25rem, 13vw, 3.75rem);
+    font-size: clamp(1.85rem, 10.5vw, 3.25rem);
     text-align: left;
     padding-right: 0;
   }
@@ -4116,7 +4120,7 @@ select {
   }
 
   .pure-hub-hero-product-img img {
-    height: clamp(12rem, 50vw, 16rem);
+    height: clamp(12rem, 52vw, 18rem);
     width: auto;
   }
 
