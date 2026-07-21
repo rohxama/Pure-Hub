@@ -4077,16 +4077,16 @@ select {
 
   .pure-hub-hero {
     padding: 5rem 1.375rem 1.5rem;
-    min-height: auto;
+    min-height: 100vh;
   }
 
   .pure-hub-hero-inner {
-    min-height: auto;
+    min-height: calc(100vh - 6.5rem);
   }
 
   .pure-hub-hero-product-img {
     position: absolute;
-    top: 35%;
+    top: 42%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(20deg);
     transform-origin: center;
@@ -4095,7 +4095,7 @@ select {
   }
 
   .pure-hub-hero-product-img img {
-    height: clamp(12rem, 52vw, 18rem);
+    height: clamp(10rem, 42vw, 14rem);
     width: auto;
   }
 
@@ -4982,17 +4982,17 @@ select {
   }
 
   .pure-hub-hero {
-    min-height: auto;
+    min-height: 100vh;
     overflow: visible;
   }
 
   .pure-hub-hero-inner {
-    min-height: auto;
+    min-height: calc(100vh - 6.5rem);
   }
 
   .pure-hub-hero-product-img {
     position: absolute;
-    top: 30%;
+    top: 38%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(20deg);
     transform-origin: center;
@@ -5001,7 +5001,7 @@ select {
   }
 
   .pure-hub-hero-product-img img {
-    height: clamp(10rem, 45vw, 14rem);
+    height: clamp(8rem, 38vw, 12rem);
   }
 
   .pure-hub-hero-button {
