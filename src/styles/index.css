@@ -4076,7 +4076,7 @@ select {
   }
 
   .pure-hub-hero {
-    padding: 5rem 1.375rem 7rem;
+    padding: 5rem 1.375rem 9rem;
     min-height: auto;
   }
 
@@ -4984,7 +4984,7 @@ select {
   .pure-hub-hero {
     min-height: auto;
     overflow: visible;
-    padding-bottom: 6rem;
+    padding-bottom: 8rem;
   }
 
   .pure-hub-hero-inner {
