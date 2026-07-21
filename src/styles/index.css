@@ -4078,10 +4078,29 @@ select {
   .pure-hub-hero {
     padding: 5rem 1.375rem 1.5rem;
     min-height: auto;
+    display: flex;
+    flex-direction: column;
   }
 
   .pure-hub-hero-inner {
     min-height: auto;
+    order: 2;
+  }
+
+  .pure-hub-hero-product-img {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: rotate(20deg);
+    order: 1;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .pure-hub-hero-product-img img {
+    height: clamp(12rem, 52vw, 18rem);
+    width: auto;
+    margin: 0 auto;
   }
 
   .pure-hub-hero-line {
@@ -4098,30 +4117,24 @@ select {
 
   .pure-hub-hero-line-three {
     font-size: clamp(1.85rem, 10.5vw, 3.25rem);
-    text-align: left;
+    text-align: center;
     padding-right: 0;
+  }
+
+  .pure-hub-hero-title {
+    text-align: center;
   }
 
   .pure-hub-hero-copy {
     font-size: 0.8rem;
     line-height: 1.5;
     margin-top: 0;
+    text-align: center;
+    max-width: 100%;
   }
 
-  .pure-hub-hero-product-img {
-    position: absolute;
-    top: 15%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(20deg);
-    transform-origin: center;
-    display: block;
-    pointer-events: none;
-    z-index: 3;
-  }
-
-  .pure-hub-hero-product-img img {
-    height: clamp(12rem, 52vw, 18rem);
-    width: auto;
+  .pure-hub-hero-bottom {
+    align-items: center;
   }
 
   .pure-hub-hero-button {
@@ -4981,20 +4994,8 @@ select {
     min-height: auto;
   }
 
-  .pure-hub-hero-product-img {
-    position: absolute;
-    top: 12%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(20deg);
-    transform-origin: center;
-    display: block;
-    pointer-events: none;
-    z-index: 3;
-  }
-
   .pure-hub-hero-product-img img {
     height: clamp(10rem, 45vw, 14rem);
-    width: auto;
   }
 
   .pure-hub-hero-button {
