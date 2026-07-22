@@ -3413,14 +3413,15 @@ select {
   }
 
   .pure-hub-home-footer {
-    grid-template-columns: auto 1fr;
-    justify-items: start;
+    grid-template-columns: 1fr;
+    justify-items: center;
     padding: 1.5rem 1.4rem;
+    gap: 1rem;
   }
 
   .pure-hub-home-footer > div:last-child {
-    justify-items: end;
-    text-align: right;
+    justify-items: center;
+    text-align: center;
   }
 
   .pure-hub-detail-shell,
@@ -3767,6 +3768,11 @@ select {
 
   .ph-contact-band {
     min-height: 20rem;
+    padding: 3rem 1.5rem;
+  }
+
+  .ph-contact-band h2 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
   }
 
   .ph-values article {
@@ -3834,10 +3840,6 @@ select {
 
   .ph-newsletter {
     padding: 4rem 2rem;
-  }
-
-  .ph-contact-band {
-    padding: 4rem 1.5rem;
   }
 
   .ph-experts {
