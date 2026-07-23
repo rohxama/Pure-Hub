@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
 import heroSectionImg from '../../assets/Hero-section.png'
 
 export default function Hero() {
@@ -40,15 +39,6 @@ export default function Hero() {
             Nourish Your Skin, Embrace the Pure Hub.<br />
             The Essence of Glowing Skin.
           </p>
-          <Link
-            to="/about"
-            className="pure-hub-hero-button btn-slide"
-          >
-            <div className="btn-slide-inner">
-              <span className="btn-text">Learn More</span>
-              <span className="btn-slide-text-alt" aria-hidden="true">Learn More</span>
-            </div>
-          </Link>
         </motion.div>
       </div>
 

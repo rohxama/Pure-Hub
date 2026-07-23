@@ -3195,7 +3195,7 @@ select {
   }
 
   .ph-product-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .pure-hub-hero-line {
@@ -3241,7 +3241,7 @@ select {
   }
 
   .ph-hero {
-    padding-top: 6rem;
+    padding-top: 9rem;
   }
 
   .ph-hero-copy {
@@ -3251,7 +3251,6 @@ select {
   .ph-values,
   .ph-post-grid,
   .ph-expert-grid,
-  .ph-product-grid,
   .ph-product-benefits,
   .ph-related-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -3291,20 +3290,16 @@ select {
     padding: 0 1.375rem;
   }
 
-  .pure-hub-nav-bar {
-    height: 5rem;
-  }
-
   .pure-hub-logo {
     font-size: 1.625rem;
   }
 
   .pure-hub-hero {
-    padding: 6.5rem 1.375rem 2.25rem;
+    padding: 11rem 1.375rem 2.25rem;
   }
 
   .pure-hub-hero-inner {
-    min-height: calc(100vh - 8.75rem);
+    min-height: calc(100vh - 14.5rem);
   }
 
   .pure-hub-hero-type {
@@ -3754,7 +3749,7 @@ select {
   }
 
   .pure-hub-hero-inner {
-    min-height: calc(100vh - 8.75rem);
+    min-height: calc(100vh - 14.5rem);
   }
 
   .pure-hub-about-panel {
@@ -3912,6 +3907,22 @@ select {
 
   .pure-hub-blog-card h3 {
     font-size: 0.75rem;
+    max-width: 7rem;
+  }
+
+  .pure-hub-blog-arrow {
+    width: 2rem;
+    height: 2rem;
+    right: 0.6rem;
+    bottom: 0.6rem;
+  }
+
+  .pure-hub-blog-price {
+    font-size: 0.7rem;
+    min-height: 1.6rem;
+    padding: 0 0.5rem;
+    right: 0.6rem;
+    bottom: 0.6rem;
   }
 
   .pure-hub-reviews-intro h2 {
@@ -4078,7 +4089,7 @@ select {
   }
 
   .pure-hub-hero {
-    padding: 5rem 1.375rem 9rem;
+    padding: 11rem 1.375rem 9rem;
     min-height: auto;
   }
 
@@ -4932,6 +4943,26 @@ select {
     min-height: 14rem;
   }
 
+  .pure-hub-blog-card h3 {
+    font-size: 0.65rem;
+    max-width: 6rem;
+  }
+
+  .pure-hub-blog-arrow {
+    width: 1.7rem;
+    height: 1.7rem;
+    right: 0.5rem;
+    bottom: 0.5rem;
+  }
+
+  .pure-hub-blog-price {
+    font-size: 0.6rem;
+    min-height: 1.4rem;
+    padding: 0 0.4rem;
+    right: 0.5rem;
+    bottom: 0.5rem;
+  }
+
   .pure-hub-experience-grid {
     gap: 0.4rem;
   }
@@ -5635,11 +5666,6 @@ main {
 }
 
 @media (max-width: 576px) {
-  .pure-hub-blog-grid {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-  }
-
   .ph-stats {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -5682,5 +5708,27 @@ main {
 
   .pure-hub-detail-info {
     min-width: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .pure-hub-nav-bar img {
+    max-height: 6rem;
+  }
+
+  .pure-hub-nav-bar .pure-hub-icon-button,
+  .pure-hub-nav-bar .pure-hub-shop-button {
+    display: inline-flex;
+  }
+}
+
+@media (max-width: 425px) {
+  .pure-hub-nav-bar .pure-hub-icon-button,
+  .pure-hub-nav-bar .pure-hub-shop-button {
+    display: none;
+  }
+
+  .pure-hub-nav-bar .pure-hub-icon-button:last-child {
+    display: inline-flex;
   }
 }
