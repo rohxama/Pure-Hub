@@ -5714,6 +5714,14 @@ main {
   .pure-hub-nav-shell .pure-hub-nav-bar {
     height: 6.5rem;
   }
+
+  .pure-hub-hero {
+    min-height: 45rem;
+  }
+
+  .ph-hero {
+    min-height: 45rem;
+  }
 }
 
 @media (max-width: 640px) {
