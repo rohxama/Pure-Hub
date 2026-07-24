@@ -1437,6 +1437,10 @@ select {
   gap: 0.75rem;
 }
 
+.pure-hub-logo-img {
+  max-height: clamp(2rem, 5vw - 0.5rem, 6.25rem);
+}
+
 .pure-hub-icon-button {
   display: inline-flex;
   width: 2.75rem;
@@ -3292,10 +3296,6 @@ select {
 
   .pure-hub-nav-bar {
     height: 6rem;
-  }
-
-  .pure-hub-nav-bar img {
-    max-height: 4rem;
   }
 
   .pure-hub-logo {
@@ -5716,10 +5716,6 @@ main {
 
   .pure-hub-detail-info {
     min-width: 0;
-  }
-
-  .pure-hub-nav-shell .pure-hub-nav-bar img {
-    max-height: 6rem;
   }
 
   .pure-hub-nav-shell .pure-hub-nav-bar .pure-hub-icon-button,

@@ -92,7 +92,7 @@ export default function Navbar() {
         <div className="pure-hub-nav-shell">
           <div className="pure-hub-nav-bar">
             <Link to="/" className="flex items-center shrink-0 overflow-hidden">
-              <img src={logoSrc} alt="Pure Hub" className="max-h-0 sm:max-h-25 w-auto object-contain block " />
+              <img src={logoSrc} alt="Pure Hub" className="pure-hub-logo-img w-auto object-contain block " />
             </Link>
 
             <nav className="pure-hub-nav-links hidden lg:flex">
