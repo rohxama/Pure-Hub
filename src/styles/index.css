@@ -3290,16 +3290,24 @@ select {
     padding: 0 1.375rem;
   }
 
+  .pure-hub-nav-bar {
+    height: 6rem;
+  }
+
+  .pure-hub-nav-bar img {
+    max-height: 5rem;
+  }
+
   .pure-hub-logo {
     font-size: 1.625rem;
   }
 
   .pure-hub-hero {
-    padding: 11rem 1.375rem 2.25rem;
+    padding: 9.5rem 1.375rem 2.25rem;
   }
 
   .pure-hub-hero-inner {
-    min-height: calc(100vh - 14.5rem);
+    min-height: calc(100vh - 13rem);
   }
 
   .pure-hub-hero-type {
@@ -5700,36 +5708,6 @@ main {
   }
 }
 
-@media (max-width: 768px) {
-  .pure-hub-nav-shell .pure-hub-nav-bar {
-    height: 6rem;
-    align-items: center;
-  }
-
-  .pure-hub-nav-shell .pure-hub-nav-bar > a {
-    display: flex;
-    align-items: center;
-  }
-
-  .pure-hub-nav-shell .pure-hub-nav-bar img {
-    max-height: 5rem;
-  }
-}
-
-@media (max-width: 530px) {
-  .pure-hub-nav-shell .pure-hub-nav-bar {
-    height: 6.5rem;
-  }
-
-  .pure-hub-hero {
-    min-height: 45rem;
-  }
-
-  .ph-hero {
-    min-height: 45rem;
-  }
-}
-
 @media (max-width: 640px) {
   .pure-hub-detail-grid {
     grid-template-columns: minmax(0, 1fr);
@@ -5741,7 +5719,7 @@ main {
   }
 
   .pure-hub-nav-shell .pure-hub-nav-bar img {
-    max-height: 5rem;
+    max-height: 6rem;
   }
 
   .pure-hub-nav-shell .pure-hub-nav-bar .pure-hub-icon-button,
