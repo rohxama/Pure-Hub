@@ -5703,6 +5703,12 @@ main {
 @media (max-width: 768px) {
   .pure-hub-nav-shell .pure-hub-nav-bar {
     height: 6rem;
+    align-items: center;
+  }
+
+  .pure-hub-nav-shell .pure-hub-nav-bar > a {
+    display: flex;
+    align-items: center;
   }
 
   .pure-hub-nav-shell .pure-hub-nav-bar img {
