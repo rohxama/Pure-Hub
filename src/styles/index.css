@@ -5731,4 +5731,8 @@ main {
   .pure-hub-nav-bar .pure-hub-icon-button:last-child {
     display: inline-flex;
   }
+
+  .pure-hub-hero-button {
+    display: none;
+  }
 }
