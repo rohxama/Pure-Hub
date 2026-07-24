@@ -5709,26 +5709,24 @@ main {
   .pure-hub-detail-info {
     min-width: 0;
   }
-}
 
-@media (max-width: 600px) {
-  .pure-hub-nav-bar img {
+  .pure-hub-nav-shell .pure-hub-nav-bar img {
     max-height: 6rem;
   }
 
-  .pure-hub-nav-bar .pure-hub-icon-button,
-  .pure-hub-nav-bar .pure-hub-shop-button {
+  .pure-hub-nav-shell .pure-hub-nav-bar .pure-hub-icon-button,
+  .pure-hub-nav-shell .pure-hub-nav-bar .pure-hub-shop-button {
     display: inline-flex;
   }
 }
 
 @media (max-width: 425px) {
-  .pure-hub-nav-bar .pure-hub-icon-button,
-  .pure-hub-nav-bar .pure-hub-shop-button {
+  .pure-hub-nav-shell .pure-hub-nav-bar .pure-hub-icon-button,
+  .pure-hub-nav-shell .pure-hub-nav-bar .pure-hub-shop-button {
     display: none;
   }
 
-  .pure-hub-nav-bar .pure-hub-icon-button:last-child {
+  .pure-hub-nav-shell .pure-hub-nav-bar .pure-hub-icon-button:last-child {
     display: inline-flex;
   }
 
