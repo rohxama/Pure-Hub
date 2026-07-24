@@ -5710,6 +5710,12 @@ main {
   }
 }
 
+@media (max-width: 530px) {
+  .pure-hub-nav-shell .pure-hub-nav-bar {
+    height: 6.5rem;
+  }
+}
+
 @media (max-width: 640px) {
   .pure-hub-detail-grid {
     grid-template-columns: minmax(0, 1fr);
